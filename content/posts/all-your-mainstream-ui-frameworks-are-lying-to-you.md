@@ -281,10 +281,10 @@ And to do so, we didn't need to invent some abstract syntax to mimic the behavio
 Okay, the approach with `visible` is somewhat clear. What about the rendering the list of components? Here it is:
 
 ```typescript
-export const function User({ key, text, isRestricted}) {
+export const function User({ key, name, isRestricted }) {
   h('li', {
     attr: { id: key },
-    text: text,
+    text: name,
     visible: isRestricted,
     classList: ["border-gray-200"]
   })
@@ -293,7 +293,7 @@ export const function User({ key, text, isRestricted}) {
 using(document.body, () => {
   h('ul', () => {
     list(users, ({ store: user, key: idx }), () => {
-      User({ key: idx, text: user.name, isDeleted: user.isRestricted })
+      User({ key: idx, name: user.name, isRestricted: user.isRestricted })
     })
   })
 })
