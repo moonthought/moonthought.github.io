@@ -528,7 +528,7 @@ export const LogsList = () => {
 
 You don't need to reason about all these `createStore`, `createEvent`. Store is just a reactive value, and event is just a signal to change them or invoke execution of some effect. They can be from any library.
 
-What is important here is the very fact of describing the view, the view logic. I believe that even less trivial descriptions of view should not require extraneous solutions. And, again, this is not an advertisement for some other solution (although such a library exists, but you won't find it anyway). Instead, I'm just trying to get you to think. Are the existing solutions doing their job optimally? No? Are you sure why **exactly** not?
+What is important here is the very fact of describing the view, the view logic. I believe that even less trivial descriptions of view should not require extraneous solutions. I'm just trying to get you to think. Are the existing solutions doing their job optimally? No? Are you sure why **exactly** not?
 
 
 ## Why it's important
