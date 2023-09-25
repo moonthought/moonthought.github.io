@@ -1,0 +1,686 @@
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>All your mainstream UI frameworks are lying to you - Moonthoughts</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="What a lovely way to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And I&rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+In addition, this article is not a marketing one and is not intended to promote some other magic pill.
+It all ended with Svelte A few days ago, a teaser of Svelte 5 was unveiled with their introduction of runes." />
+  <meta name="author" content="Moonthoughts" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://moonthought.github.io/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://moonthought.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://moonthought.github.io/theme.png" />
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  <link rel="icon" href="https://moonthought.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://moonthought.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.118.2">
+
+  
+  
+
+  
+  
+  
+  
+  
+  <meta itemprop="name" content="All your mainstream UI frameworks are lying to you">
+<meta itemprop="description" content="What a lovely way to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And I&rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+In addition, this article is not a marketing one and is not intended to promote some other magic pill.
+It all ended with Svelte A few days ago, a teaser of Svelte 5 was unveiled with their introduction of runes."><meta itemprop="datePublished" content="2023-09-25T13:25:39+03:00" />
+<meta itemprop="dateModified" content="2023-09-25T13:25:39+03:00" />
+<meta itemprop="wordCount" content="3046">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="All your mainstream UI frameworks are lying to you"/>
+<meta name="twitter:description" content="What a lovely way to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And I&rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+In addition, this article is not a marketing one and is not intended to promote some other magic pill.
+It all ended with Svelte A few days ago, a teaser of Svelte 5 was unveiled with their introduction of runes."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="https://moonthought.github.io"
+      >Moonthoughts</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">All your mainstream UI frameworks are lying to you</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Sep 25, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>What a lovely way to start an article. But don&rsquo;t get me wrong — this is not a clickbait.
+And I&rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.</p>
+<p>In addition, this article is not a marketing one and is not intended to promote some other magic pill.</p>
+<h2 id="it-all-ended-with-svelte">It all ended with Svelte</h2>
+<p>A few days ago, a teaser of Svelte 5 was unveiled with their <a href="https://svelte.dev/blog/runes">introduction of runes</a>.</p>
+<p>And almost everyone got excited about it. And I&rsquo;m excited too. Excited, because I&rsquo;ve already seen this approach to reactivity 5-6 years ago.
+All those <code>$props</code>, <code>$derived</code>, <code>$effects</code>, <code>$state</code>, signals – I&rsquo;ve seen it all before. And I like it. And I think they&rsquo;re on the right track. Tho Svelte still clinging to mainstream solutions that have shown themselves incapable of conveniently solving complex web problems, but hopefully they&rsquo;ll get over it. But that&rsquo;s not what we&rsquo;re going to talk about.</p>
+<p>What really pissed me off was is the same kludge to solve UI problems.</p>
+<p>Why does the solution for reactivity in components still require compilation? Why is hijacked HTML syntax with fake directives still being used? Why is the UI representation still described in an imperative way? And why is technology still trying to mimic HTML in the first place?</p>
+<p>Let&rsquo;s start with the latter.</p>
+<h2 id="who-says-html-is-the-right-abstraction">Who says HTML is the right abstraction?</h2>
+<p>A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It&rsquo;s just one way of representing that tree, and no one has said that this way is optimal enough. And rest assured, it&rsquo;s not.</p>
+<p>Browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:</p>
+<ul>
+<li>attributes</li>
+<li>handlers</li>
+<li>styles</li>
+<li>data-* attributes</li>
+<li>visibility</li>
+<li>text content</li>
+<li>children</li>
+</ul>
+<p>And unfortunately, many developers don&rsquo;t realise or don&rsquo;t want to realise that we don&rsquo;t need to hide from this complexity*. It&rsquo;s our platform, and it&rsquo;s our responsibility to figure it out.
+Unfortunately, almost all UI solutions fool themselves and us time and time again by using the most primitive technique - the suggestion of simplicity.</p>
+<p>They all try to reduce the diversity of DOM-node properties to a flat list of attributes. It doesn&rsquo;t work. And it&rsquo;s perfectly visible. Reducing at least seven categories of DOM-node properties to a flat list of attributes doesn&rsquo;t make life any easier, there are still seven categories, they just turn into flat mincemeat.</p>
+<p>— *complexity is categorised into two types: introduced and natural. Introduced complexity is introduced (sheesh) by libraries, frameworks, languages, paradigms, etc. Natural complexity is inherent in the platform itself and is designed to solve fundamental problems of the domain. A good engineer will reduce the introduced complexity and try to accept and deal with the natural complexity. Please stop hiding from natural complexity and start respecting your platform already.</p>
+<blockquote>
+<p>A quick note on Svelte again: Rich Harris has put out an excellent video on <a href="https://www.youtube.com/watch?v=NR8L5m73dtE&amp;ab_channel=RichHarris">what&rsquo;s the deal with getters and setters</a> in which he responds to some people&rsquo;s concerns about Svelte&rsquo;s new approach to reactivity. But the only thing that wasn&rsquo;t sufficiently addressed was the «I have to write more code» take.
+The ultimate goal is not to write as little code as possible, but to write as little code as is necessary to explicitly describe the intent of your application. If the only thing the technology attracts/offers is &ldquo;simplicity&rdquo;, then you&rsquo;re trying to sweep important nuances under the rug. You will still encounter them in the future, but from a different angle.</p>
+</blockquote>
+<p>Sorry, but choosing between <code>onClick={...}</code>, <code>on:click={...}</code> and <code>@click=&quot;...&quot;</code> is actually a lack of choice. And I&rsquo;m tired of it.</p>
+<p>In some ways, it is understandable why such solutions might have appeared ~decade ago:</p>
+<ul>
+<li>Because the stack is easy to use but difficult to design.</li>
+<li>Because early applications were simpler, and primitive means of templating were enough to support DOM APIs</li>
+<li>Because code performance in this form became sufficient only relatively recently (4-5 years).</li>
+</ul>
+<p>And from here comes the main reason:</p>
+<ul>
+<li>Because you need to have a lot of time to experiment and be able to accept new realities and the failure of current approaches.</li>
+</ul>
+<p>Unfortunately, people have very little time for the latter. And I don&rsquo;t blame them. We&rsquo;re all like that. But every year the situation becomes more and more sad to me. Don&rsquo;t you yourselves feel sorry for the time spent on HOCs, render-props and other nonsense we threw away months later?</p>
+<p>I&rsquo;m starting to see this as a direct correlation: apps are still being made with difficulty and high financial costs, they&rsquo;re hard to maintain, and instead of learning how to do even one platform right, we&rsquo;re wasting energy on compromises.</p>
+<h2 id="hijacked-syntax">Hijacked syntax</h2>
+<p>People may complain about the JSX syntax in React, or the template approach in Vue, or the components in Svelte. And with good reason! And not because these solutions are bad, but because they are simply wrong. The difference is huge.</p>
+<p>Just let me show you some code examples already, so that you can see what I&rsquo;m talking about:</p>
+<p><strong>React</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSX" data-lang="JSX"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Component</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hey</span> <span style="color:#a6e22e">there</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Vue</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;Hey there&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><p><strong>Svelte</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">h1</span>&gt;Hey there&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p><strong>Angular</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">@Component</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;component&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;h1&gt;Hey there&lt;/h1&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>,
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>Well, actually they look fine. Even Angular, on the whole, doesn&rsquo;t seem like something to shrug off just yet.</p>
+<p>But let&rsquo;s try to add some conditional rendering:</p>
+<p><strong>React</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSX" data-lang="JSX"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ConditionalComponent</span>({ <span style="color:#a6e22e">showMessage</span> }) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">showMessage</span> <span style="color:#f92672">?</span> (
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Hey</span> <span style="color:#a6e22e">there</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      ) <span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">ConditionalComponent</span> <span style="color:#a6e22e">showMessage</span><span style="color:#f92672">=</span>{<span style="color:#66d9ef">true</span>} /&gt;
+</span></span></code></pre></div><p><strong>Vue</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">v-if</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;showMessage&#34;</span>&gt;Hey there&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ConditionalComponent&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">showMessage</span><span style="color:#f92672">:</span> Boolean
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">ConditionalComponent</span> <span style="color:#a6e22e">:showMessage</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span>
+</span></span></code></pre></div><p><strong>Svelte</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  {#if showMessage}
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">h1</span>&gt;Hey there&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>  {/if}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">ConditionalComponent</span> <span style="color:#a6e22e">showMessage</span><span style="color:#f92672">=</span><span style="color:#e6db74">{true}</span> /&gt;
+</span></span></code></pre></div><p><strong>Angular</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Component</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;conditional-component&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;ng-container *ngIf=&#34;showMessage&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &lt;h1&gt;Hey there&lt;/h1&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;/ng-container&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>,
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConditionalComponent</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Input</span>() <span style="color:#a6e22e">showMessage</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">conditional</span><span style="color:#f92672">-</span><span style="color:#a6e22e">component</span> [<span style="color:#a6e22e">showMessage</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/conditional-component&gt;</span>
+</span></span></code></pre></div><p>Pardon my British, but what the schlocky-donkey rubbish is that?</p>
+<p>If-statements inside a view tree with fallback to null (or some plug component, doesn&rsquo;t really matter)? A <code>v-if</code> directive? What, a <code>{#if ...}</code> templating block? Structural directive with <code>*ngIf</code>? Need I say that there is nothing like this in the DOM API and it&rsquo;s all a cheap ass tricks? And I&rsquo;m not talking about the naming or something. It&rsquo;s about the concept itself.</p>
+<p>The one that stood out the most here, of course, was Vue. You either use <code>v-if</code> and destroy the components each time over again, or you stupidly hide the component. Using <code>display: none</code> in 2023? That&rsquo;s a great way to disrespect your own platform.</p>
+<p>But that doesn&rsquo;t mean that Vue is the only one with problems. Other technologies have tried to pull things onto HTML that shouldn&rsquo;t be pulled directly onto it at all.</p>
+<p>What abot rendering a list of something? Here it is:</p>
+<p><strong>React</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">UserList() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">user</span> <span style="color:#f92672">=&gt;</span> (
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">id</span>}&gt;{<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>        ))}
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Vue</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">template</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">li</span> <span style="color:#a6e22e">v-for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user in users&#34;</span> <span style="color:#a6e22e">:key</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user.id&#34;</span>&gt;{{ user.name }}&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">template</span>&gt;
+</span></span></code></pre></div><p><strong>Svelte</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    {#each users as user (user.id)}
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">li</span>&gt;{user.name}&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>    {/each}
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p><strong>Angular</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">@Component</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user-list&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;ul&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &lt;li *ngFor=&#34;let user of users; let i = index&#34;&gt;{{ user.name }}&lt;/li&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;/ul&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>,
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>Oh, again. Fictitious syntax, templating, directives. And where is the guarantee that none of this will change in the future? There&rsquo;s no such guarantee. And it has happened before, am I right mr. React and mr. Vue? Where is the guarantee that once such a technology leaves the mainstream, it will not turn into a hard-to-maintain legacy technology? (hello Ember)</p>
+<p>Why do you - both users and creators of such solutions - continue to spawn failed technologies that go against the platform idiom? I haven&rsquo;t seen anything like this in mobile development, for example. There, no one is trying to come up with a magic pill; instead, people create convenient APIs to interact with the platform and don&rsquo;t try to hide reality.</p>
+<h2 id="embrace-the-dom-api">Embrace the DOM API</h2>
+<p>So, let&rsquo;s move on to possible solutions to this situation. DOM API! There&rsquo;s a lot of interesting things about it; oddly enough, people have worked on it meticulously over the years. It&rsquo;s incredibly huge, it has a lot of features, and there are a number of such features that you can&rsquo;t hide from behind a wall of props.</p>
+<p>How would we solve the problem with conditional rendering, for example? Well, DOM API have <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/append">node.append()</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild">node.appendChild()</a> methods, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/remove">node.remove()</a> method and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">node.isConnected</a> property. We can use it to add or remove a node at any time and determine if it is connected to the DOM tree. React, for example, basically does just that.</p>
+<p>But here, too, they were reckless in taking this description outside of the component. But does it make any sense? The state of a node (even with its children) connected to a DOM tree should be reported by the component itself, not by any external blocks. So we could do something like that:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Component</span>({ <span style="color:#a6e22e">showMessage</span> }) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;div&#39;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;h1&#39;</span>, {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Hey there&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">visible</span>: <span style="color:#66d9ef">showMessage</span>,
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>No made-up syntaxes or extensions, no attempts to hide the essentials behind a wall of magic. Just a regular JS function with a convenient API for interacting with the DOM. How can we use this component in our application? As a plain function again, of course:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#a6e22e">using</span>(<span style="color:#a6e22e">body</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Component</span>({ <span style="color:#a6e22e">showMessage</span>: <span style="color:#66d9ef">true</span> })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>This approach borrows ideas from SwiftUI and Flutter. Where the second callback argument is an alternative to SwiftUI&rsquo;s blocks for nesting components, and the <code>visible</code> property is an analogue of the <code>visible</code> property from Flutter as is. And note that <code>visible</code> here is not a &ldquo;hack&rdquo; as in Vue, but an actual insertion/extraction of a DOM node from a subtree.</p>
+<p>And to do so, we didn&rsquo;t need to invent some abstract syntax to mimic the behaviour we needed. Yes, I realize that you may not like javascript, and you may have your reasons. But the &ldquo;native&rdquo; language of the frontend is still javascript, and trying to get around it with fake solutions only makes things worse. We&rsquo;ve seen it many times before.</p>
+<p>Okay, the approach with <code>visible</code> is somewhat clear. What about the rendering the list of components? Here it is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">User</span>({ <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">text</span>, <span style="color:#a6e22e">isRestricted</span>}) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;li&#39;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">attr</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">key</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">text</span>: <span style="color:#66d9ef">text</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">visible</span>: <span style="color:#66d9ef">isRestricted</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">classList</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;border-gray-200&#34;</span>]
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">using</span>(document.<span style="color:#a6e22e">body</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;ul&#39;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">list</span>(<span style="color:#a6e22e">users</span>, ({ <span style="color:#a6e22e">store</span>: <span style="color:#66d9ef">user</span>, <span style="color:#a6e22e">key</span>: <span style="color:#66d9ef">idx</span> }), () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">User</span>({ <span style="color:#a6e22e">key</span>: <span style="color:#66d9ef">idx</span>, <span style="color:#a6e22e">text</span>: <span style="color:#66d9ef">user.name</span>, <span style="color:#a6e22e">isDeleted</span>: <span style="color:#66d9ef">user.isRestricted</span> })
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>This approach partially replicates the one presented in SwiftUI with their:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>List(users) { user <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// usage of user</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In addition, each of the variables or properties used in the code presented can be reactive. This way, every time we have a change in the list of users or their attributes, it will be reflected in the final layout.</p>
+<p>Also, this <code>list</code> approach renders the list a bit more interesting than it might seem at first glance. Instead of computing the entire contents of each item in a list, templates (js templates, not to be confused with templates from Vue and others) are created for the application to work with, and the templates are generated in advance, one for each <code>list</code> call. Thus, for each change in the reactive value of <code>users</code>, we only need to create a new instance of the already configured template, instead of calculating everything in runtime.</p>
+<p>But what about event handlers and attributes specification? Well, we can imagine something like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#a6e22e">using</span>(document.<span style="color:#a6e22e">body</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;section&#39;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">spec</span>({ <span style="color:#a6e22e">style</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;15em&#39;</span>} })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;form&#39;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">spec</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">config</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">prevent</span>: <span style="color:#66d9ef">true</span> },
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">on</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">submit</span> },
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">style</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">flexDirection</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;column&#39;</span>,
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;input&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">attr</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Username&#39;</span> },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">input</span>: <span style="color:#66d9ef">changeUsername</span> },
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;input&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">attr</span><span style="color:#f92672">:</span> { <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;password&#39;</span>, <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Password&#39;</span> },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">classList</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;w-full&#39;</span>, <span style="color:#e6db74">&#39;py-2&#39;</span>, <span style="color:#e6db74">&#39;px-4&#39;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">input</span>: <span style="color:#66d9ef">changePassword</span> },
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#39;button&#39;</span>, {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Submit&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">attr</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">disabled</span>: <span style="color:#66d9ef">fields.map</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">fields</span> <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">!</span>(<span style="color:#a6e22e">fields</span>.<span style="color:#a6e22e">username</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">fields</span>.<span style="color:#a6e22e">password</span>),
+</span></span><span style="display:flex;"><span>          ),
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>  })
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>Here <code>changeUsername</code> and <code>changePassword</code> are events to reactively change perspective values. And <code>fields</code> is a reactive object with the attributes themselves. Yes, a store. Like it or not.
+Using the <code>map()</code> method, we can create a derived property (hello <code>$derived</code> from Svelte) that will update when the username or password is updated and change the attribute of the button.</p>
+<p>I know what you might think looking at it for the first time:</p>
+<ul>
+<li>It looks very unusual</li>
+<li>Hella verbose</li>
+<li>Having to work with DOM API nuances on your own</li>
+</ul>
+<p>But is this really the case?</p>
+<p>Nothing unusual here, it&rsquo;s just a JS functions. And the rest:</p>
+<ul>
+<li><code>attr</code> - object with node&rsquo;s attributes.</li>
+<li><code>style</code> - object with node&rsquo;s styles.</li>
+<li><code>classList</code> - an array of node classes. By the way, this is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">what it is called in the DOM API itself</a></li>
+<li><code>handler</code> - object with node&rsquo;s event handlers with configuration object inside (note <code>config: { prevent: true }</code>)</li>
+<li><code>spec</code> - is just a wrapper function to describe the property categories of a node, if the component has child elements inside it&rsquo;s callback. This way you can describe the set of properties at the top level of component (actually anywhere inside the callback, but it&rsquo;s not that important.)</li>
+</ul>
+<p>Verbose? Yes, I agree. This approach looks more verbose than what React, Vue, Svelte, Solid and others offers. But the solution presented above doesn&rsquo;t fool you about the complexity of the frontend, nor does it offer a magic pill of &ldquo;simplicity.&rdquo; Instead, you need to face reality head-on and learn to make friends with it, not fight it. In this way, you will get a clear picture of how exactly your application is built. Yes, it&rsquo;s verbose. But does it look very complicated? Or so complex that you can&rsquo;t understand what&rsquo;s going on here? I bet you understand exactly what each of these lines is doing.</p>
+<p>Moreover, you don&rsquo;t need to work directly with the DOM API. All you really need is a convenient JS API to interact with it. I am sure that the view tree should be managed by native tools. And manual work on adding, removing, updating the tree? Yes, this one can be put under the hood of some technologies.</p>
+<p>Once again, I&rsquo;m not trying to sell you some new blazingly kool-aid nuts technology. Instead, I just want to point out the problems of existing solutions and how they can be solved by native tools without reinventing the wheel.</p>
+<p>I&rsquo;ll say it again - start respecting your own platform. Everyone has learned to work with their platform, unlike the frontend developers who try to cover themselves with yet another bogus solution year after year.</p>
+<h2 id="everythings-fine-until-its-not">Everything&rsquo;s fine until it&rsquo;s not?</h2>
+<p>Fair question. Showing simple examples is difficult to convey the real picture, as some problems may not show up in simple examples.</p>
+<p>Here&rsquo;s how, for example, you might describe a form section in a real application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Auth</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;div&#34;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">spec</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">classList</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;mt-10&#34;</span>, <span style="color:#e6db74">&#34;max-w-sm&#34;</span>, <span style="color:#e6db74">&#34;w-full&#34;</span>],
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;form&#34;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Input</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;email&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Email&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">inputChanged</span>: <span style="color:#66d9ef">authForm.fields.email.changed</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">errorText</span>: <span style="color:#66d9ef">authForm.fields.email.$errorText</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">errorVisible</span>: <span style="color:#66d9ef">authForm.fields.email.$errors.map</span>(Boolean),
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Input</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;password&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Password&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">inputChanged</span>: <span style="color:#66d9ef">authForm.fields.password.changed</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">errorText</span>: <span style="color:#66d9ef">authForm.fields.password.$errorText</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">errorVisible</span>: <span style="color:#66d9ef">authForm.fields.password.$errors.map</span>(Boolean),
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">Button</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Create&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">event</span>: <span style="color:#66d9ef">authForm.submit</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;base&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">prevent</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">variant</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ErrorHint</span>(<span style="color:#a6e22e">$authError</span>, <span style="color:#a6e22e">$authError</span>.<span style="color:#a6e22e">map</span>(Boolean));
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Input</span> <span style="color:#f92672">=</span> ({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">value</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">required</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inputChanged</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">errorVisible</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">errorText</span>,
+</span></span><span style="display:flex;"><span>}<span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">value?</span>: <span style="color:#66d9ef">Store</span>&lt;<span style="color:#f92672">string</span>&gt;;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">label</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">required?</span>: <span style="color:#66d9ef">boolean</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inputChanged</span>: <span style="color:#66d9ef">Event</span>&lt;<span style="color:#f92672">any</span>&gt;;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">errorVisible?</span>: <span style="color:#66d9ef">Store</span>&lt;<span style="color:#f92672">boolean</span>&gt;;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">errorText?</span>: <span style="color:#66d9ef">Store</span>&lt;<span style="color:#f92672">string</span>&gt;;
+</span></span><span style="display:flex;"><span>}) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;div&#34;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">spec</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">classList</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;mb-6&#34;</span>],
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;label&#34;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">spec</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">classList</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;block&#34;</span>, <span style="color:#e6db74">&#34;mb-2&#34;</span>, <span style="color:#e6db74">&#34;text-sm&#34;</span>, <span style="color:#e6db74">&#34;font-medium&#34;</span>, <span style="color:#e6db74">&#34;text-gray-900&#34;</span>, <span style="color:#e6db74">&#34;dark:text-white&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">text</span>: <span style="color:#66d9ef">label</span>,
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;input&#34;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">localInputChanged</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createEvent</span>&lt;<span style="color:#f92672">any</span>&gt;();
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">sample</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">source</span>: <span style="color:#66d9ef">localInputChanged</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fn</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">event</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">inputChanged</span>,
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">spec</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">classList</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;bg-gray-50&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;border&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;border-gray-300&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;text-gray-900&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;text-sm&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;rounded-lg&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;focus:ring-blue-500&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;focus:border-blue-500&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;block&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;w-full&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;p-2.5&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;dark:bg-gray-700&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;dark:border-gray-600&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;dark:placeholder-gray-400&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;dark:text-white&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;dark:focus:ring-blue-500&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;dark:focus:border-blue-500&#34;</span>,
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">attr</span><span style="color:#f92672">:</span> { <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">type</span>, <span style="color:#a6e22e">required</span>: <span style="color:#66d9ef">Boolean</span>(<span style="color:#a6e22e">required</span>), <span style="color:#a6e22e">value</span>: <span style="color:#66d9ef">value</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">createStore</span>(<span style="color:#e6db74">&#34;&#34;</span>) },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">on</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">input</span>: <span style="color:#66d9ef">localInputChanged</span> } },
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ErrorHint</span>(<span style="color:#a6e22e">errorText</span>, <span style="color:#a6e22e">errorVisible</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ErrorHint</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">text</span>: <span style="color:#66d9ef">Store</span>&lt;<span style="color:#f92672">string</span>&gt; <span style="color:#f92672">|</span> <span style="color:#66d9ef">string</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>, <span style="color:#a6e22e">visible</span>: <span style="color:#66d9ef">Store</span>&lt;<span style="color:#f92672">boolean</span>&gt; <span style="color:#f92672">|</span> <span style="color:#66d9ef">undefined</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;p&#34;</span>, {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">classList</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;mt-2&#34;</span>, <span style="color:#e6db74">&#34;text-sm&#34;</span>, <span style="color:#e6db74">&#34;text-red-600&#34;</span>, <span style="color:#e6db74">&#34;dark:text-red-400&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">visible</span>: <span style="color:#66d9ef">visible</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">createStore</span>(<span style="color:#66d9ef">false</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">text</span>: <span style="color:#66d9ef">text</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">createStore</span>(<span style="color:#e6db74">&#34;&#34;</span>),
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>What about describing some list of logs using predefined card with tags, attributes and dynamic content?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">LogsList</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">h</span>(<span style="color:#e6db74">&#34;div&#34;</span>, () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">spec</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">classList</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;flex&#34;</span>, <span style="color:#e6db74">&#34;flex-col&#34;</span>, <span style="color:#e6db74">&#34;space-y-6&#34;</span>, <span style="color:#e6db74">&#34;mt-2&#34;</span>],
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">list</span>(<span style="color:#a6e22e">logModel</span>.<span style="color:#a6e22e">$logsGroups</span>, ({ <span style="color:#a6e22e">store</span>: <span style="color:#66d9ef">group</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">CardHeaded</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">tags</span>: <span style="color:#66d9ef">group.map</span>((<span style="color:#a6e22e">g</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">tags</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">href</span>: <span style="color:#66d9ef">group.map</span>((<span style="color:#a6e22e">g</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">schema_name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">group_hash</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">LogsTable</span>(<span style="color:#a6e22e">group</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">g</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">logs</span>));
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">withMore</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><p>You don&rsquo;t need to reason about all these <code>createStore</code>, <code>createEvent</code>. Store is just a reactive value, and event is just a signal to change them or invoke execution of some effect. They can be from any library.</p>
+<p>What is important here is the very fact of describing the view, the view logic. I believe that even less trivial descriptions of view should not require extraneous solutions. And, again, this is not an advertisement for some other solution (although such a library exists, but you won&rsquo;t find it anyway). Instead, I&rsquo;m just trying to get you to think. Are the existing solutions doing their job optimally? No? Are you sure why <strong>exactly</strong> not?</p>
+<h2 id="why-its-important">Why it&rsquo;s important</h2>
+<p>You may think I&rsquo;m being too aggressive with current mainstream solutions. But that&rsquo;s not true.</p>
+<p>In fact, I believe that each of these technologies is needed to some degree. Or was needed. At least for general frontend development. But what I don&rsquo;t like is that we&rsquo;re literally stuck in the past decade, and no one in the mainstream is trying to bring this to the attention of developers. As a result, our applications still have zero reproducibility, and the labor intensity of the tasks, even for monotonic ones, is featural.</p>
+<p>And instead of recognizing the failure of current practices, we continue to choose between different colors of the same felt-tip pen.</p>
+<p>Respect your platform, please.</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="https://moonthought.github.io">Moonthoughts</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

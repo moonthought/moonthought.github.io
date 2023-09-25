@@ -6,23 +6,16 @@
     <description>Recent content on Moonthoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Sep 2023 17:17:47 +0300</lastBuildDate><atom:link href="https://moonthought.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Sep 2023 13:25:39 +0300</lastBuildDate><atom:link href="https://moonthought.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Why I Love Typescript Types</title>
-      <link>https://moonthought.github.io/posts/why-i-love-typescript-types/</link>
-      <pubDate>Wed, 20 Sep 2023 17:17:47 +0300</pubDate>
+      <title>All your mainstream UI frameworks are lying to you</title>
+      <link>https://moonthought.github.io/posts/all-your-mainstream-ui-frameworks-are-lying-to-you/</link>
+      <pubDate>Mon, 25 Sep 2023 13:25:39 +0300</pubDate>
       
-      <guid>https://moonthought.github.io/posts/why-i-love-typescript-types/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JSX is not bad. It&#39;s just wrong</title>
-      <link>https://moonthought.github.io/posts/jsx-is-just-wrong/</link>
-      <pubDate>Sun, 10 Sep 2023 13:25:39 +0300</pubDate>
-      
-      <guid>https://moonthought.github.io/posts/jsx-is-just-wrong/</guid>
-      <description></description>
+      <guid>https://moonthought.github.io/posts/all-your-mainstream-ui-frameworks-are-lying-to-you/</guid>
+      <description>What a lovely way to start an article. But don&amp;rsquo;t get me wrong — this is not a clickbait. And I&amp;rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+In addition, this article is not a marketing one and is not intended to promote some other magic pill.
+It all ended with Svelte A few days ago, a teaser of Svelte 5 was unveiled with their introduction of runes.</description>
     </item>
     
   </channel>
