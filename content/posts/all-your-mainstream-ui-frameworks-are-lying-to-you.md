@@ -160,7 +160,7 @@ Therefore, re-renders are abused to recalculate side effects and update data, ev
 
 Yes, I know that their position on this is «React is causing more re-renders than necessary, but its underlying mechanisms are designed to optimize performance and keep the UI in sync with the application's data.» But lets be real here - **absolutely everyone** are trying to get rid of re-renders. And various "solutions" like `useMemo` still do not guarantee absence of additional renderings.
 
-Excuse me, but this is all just a half-measures and and unnecessary compromises. Fast and optimized re-renders is not a solution. The solution would be to get rid of re-renders as a phenomenon.
+Excuse me, but this is all just a half-measures and unnecessary compromises. Fast and optimized re-renders is not a solution. The solution would be to get rid of them as a phenomenon.
 
 And this is possible with static initialization of the entire interface tree. Each element (or rather, the callback of an element inside the stack) will be calculated and called once to associate reactive values with nodes.
 That's it, the main task here is to execute the described code **only once**, and all that will happen further is the movement of processes and events along the DOM graph.

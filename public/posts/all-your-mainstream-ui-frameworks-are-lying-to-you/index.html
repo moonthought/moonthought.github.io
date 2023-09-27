@@ -115,7 +115,7 @@ if (!doNotTrack) {
 <meta itemprop="description" content="What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
 In addition, this article is not a marketing one and is not intended to promote some other magic pill."><meta itemprop="datePublished" content="2023-09-25T13:25:39+03:00" />
 <meta itemprop="dateModified" content="2023-09-25T13:25:39+03:00" />
-<meta itemprop="wordCount" content="3269">
+<meta itemprop="wordCount" content="3268">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -340,7 +340,7 @@ The ultimate goal is not to write as little code as possible, but to write as li
 In React, for example, function-component content is full of side effects because of the nature of hooks concept.
 Therefore, re-renders are abused to recalculate side effects and update data, even when you dont even need that.</p>
 <p>Yes, I know that their position on this is «React is causing more re-renders than necessary, but its underlying mechanisms are designed to optimize performance and keep the UI in sync with the application&rsquo;s data.» But lets be real here - <strong>absolutely everyone</strong> are trying to get rid of re-renders. And various &ldquo;solutions&rdquo; like <code>useMemo</code> still do not guarantee absence of additional renderings.</p>
-<p>Excuse me, but this is all just a half-measures and and unnecessary compromises. Fast and optimized re-renders is not a solution. The solution would be to get rid of re-renders as a phenomenon.</p>
+<p>Excuse me, but this is all just a half-measures and unnecessary compromises. Fast and optimized re-renders is not a solution. The solution would be to get rid of them as a phenomenon.</p>
 <p>And this is possible with static initialization of the entire interface tree. Each element (or rather, the callback of an element inside the stack) will be calculated and called once to associate reactive values with nodes.
 That&rsquo;s it, the main task here is to execute the described code <strong>only once</strong>, and all that will happen further is the movement of processes and events along the DOM graph.</p>
 <p>Other technologies have their disadvantages too, but let&rsquo;s move on. What abot rendering a list of something? Here it is:</p>
