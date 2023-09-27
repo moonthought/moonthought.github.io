@@ -49,9 +49,8 @@
   
   
   
-  <meta name="description" content="What a lovely way to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And I&rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
-In addition, this article is not a marketing one and is not intended to promote some other magic pill.
-It all ended with Svelte A few days ago, a teaser of Svelte 5 was unveiled with their introduction of runes." />
+  <meta name="description" content="What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+In addition, this article is not a marketing one and is not intended to promote some other magic pill." />
   <meta name="author" content="Moonthoughts" />
   
 
@@ -113,18 +112,16 @@ if (!doNotTrack) {
 
   
   <meta itemprop="name" content="All your mainstream UI frameworks are lying to you">
-<meta itemprop="description" content="What a lovely way to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And I&rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
-In addition, this article is not a marketing one and is not intended to promote some other magic pill.
-It all ended with Svelte A few days ago, a teaser of Svelte 5 was unveiled with their introduction of runes."><meta itemprop="datePublished" content="2023-09-25T13:25:39+03:00" />
+<meta itemprop="description" content="What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+In addition, this article is not a marketing one and is not intended to promote some other magic pill."><meta itemprop="datePublished" content="2023-09-25T13:25:39+03:00" />
 <meta itemprop="dateModified" content="2023-09-25T13:25:39+03:00" />
-<meta itemprop="wordCount" content="3024">
+<meta itemprop="wordCount" content="3198">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="All your mainstream UI frameworks are lying to you"/>
-<meta name="twitter:description" content="What a lovely way to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And I&rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
-In addition, this article is not a marketing one and is not intended to promote some other magic pill.
-It all ended with Svelte A few days ago, a teaser of Svelte 5 was unveiled with their introduction of runes."/>
+<meta name="twitter:description" content="What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+In addition, this article is not a marketing one and is not intended to promote some other magic pill."/>
 
   
   
@@ -227,19 +224,19 @@ It all ended with Svelte A few days ago, a teaser of Svelte 5 was unveiled with 
     
   </header>
 
-  <section><p>What a lovely way to start an article. But don&rsquo;t get me wrong — this is not a clickbait.
-And I&rsquo;m going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.</p>
+  <section><p>What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait.
+And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.</p>
 <p>In addition, this article is not a marketing one and is not intended to promote some other magic pill.</p>
 <h2 id="it-all-ended-with-svelte">It all ended with Svelte</h2>
 <p>A few days ago, a teaser of Svelte 5 was unveiled with their <a href="https://svelte.dev/blog/runes">introduction of runes</a>.</p>
 <p>And almost everyone got excited about it. And I&rsquo;m excited too. Excited, because I&rsquo;ve already seen this approach to reactivity 5-6 years ago.
-All those <code>$props</code>, <code>$derived</code>, <code>$effects</code>, <code>$state</code>, signals – I&rsquo;ve seen it all before. And I like it. And I think they&rsquo;re on the right track. Tho Svelte still clinging to mainstream solutions that have shown themselves incapable of conveniently solving complex web problems, but hopefully they&rsquo;ll get over it. But that&rsquo;s not what we&rsquo;re going to talk about.</p>
+All those <code>$props</code>, <code>$derived</code>, <code>$effects</code>, <code>$state</code>, signals – I&rsquo;ve seen it all before. And I like it. And I think they&rsquo;re on the right track, since it&rsquo;s just the beginning of a new approach within mainstream solutions. But that&rsquo;s not what we&rsquo;re going to talk about.</p>
 <p>What really pissed me off was is the same kludge to solve UI problems.</p>
-<p>Why does the solution for reactivity in components still require compilation? Why is hijacked HTML syntax with fake directives still being used? Why is the UI representation still described in an imperative way? And why is technology still trying to mimic HTML in the first place?</p>
+<p>Why does the solution for reactivity in components still require transpiling? Why is hijacked HTML syntax with fake directives still being used? Why is the UI representation still described in an imperative way? And why is technology still trying to mimic HTML in the first place?</p>
 <p>Let&rsquo;s start with the latter.</p>
 <h2 id="who-says-html-is-the-right-abstraction">Who says HTML is the right abstraction?</h2>
-<p>A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It&rsquo;s just one way of representing that tree, and no one has said that this way is optimal enough. And rest assured, it&rsquo;s not.</p>
-<p>Browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:</p>
+<p>A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It&rsquo;s just one way of representing that tree, and no one has said that this way is optimal enough and appropriate for its time? And rest assured, it&rsquo;s not.</p>
+<p>In fact, There&rsquo;s nothing wrong with HTML itself - it&rsquo;s a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:</p>
 <ul>
 <li>attributes</li>
 <li>handlers</li>
@@ -255,7 +252,7 @@ Unfortunately, almost all UI solutions fool themselves and us time and time agai
 <p>— *complexity is categorised into two types: introduced and natural. Introduced complexity is introduced (sheesh) by libraries, frameworks, languages, paradigms, etc. Natural complexity is inherent in the platform itself and is designed to solve fundamental problems of the domain. A good engineer will reduce the introduced complexity and try to accept and deal with the natural complexity. Please stop hiding from natural complexity and start respecting your platform already.</p>
 <blockquote>
 <p>A quick note on Svelte again: Rich Harris has put out an excellent video on <a href="https://www.youtube.com/watch?v=NR8L5m73dtE&amp;ab_channel=RichHarris">what&rsquo;s the deal with getters and setters</a> in which he responds to some people&rsquo;s concerns about Svelte&rsquo;s new approach to reactivity. But the only thing that wasn&rsquo;t sufficiently addressed was the «I have to write more code» take.
-The ultimate goal is not to write as little code as possible, but to write as little code as is necessary to explicitly describe the intent of your application. If the only thing the technology attracts/offers is &ldquo;simplicity&rdquo;, then you&rsquo;re trying to sweep important nuances under the rug. You will still encounter them in the future, but from a different angle.</p>
+The ultimate goal is not to write as little code as possible, but to write as little code as necessary to explicitly describe the intent of your application. If the only thing the technology attracts/offers is &ldquo;simplicity&rdquo;, then you&rsquo;re trying to sweep important nuances under the rug. You will still encounter them in the future, but from a different angle.</p>
 </blockquote>
 <p>Sorry, but choosing between <code>onClick={...}</code>, <code>on:click={...}</code> and <code>@click=&quot;...&quot;</code> is actually a lack of choice. And I&rsquo;m tired of it.</p>
 <p>In some ways, it is understandable why such solutions might have appeared ~decade ago:</p>
@@ -268,7 +265,7 @@ The ultimate goal is not to write as little code as possible, but to write as li
 <ul>
 <li>Because you need to have a lot of time to experiment and be able to accept new realities and the failure of current approaches.</li>
 </ul>
-<p>Unfortunately, people have very little time for the latter. And I don&rsquo;t blame them. We&rsquo;re all like that. But every year the situation becomes more and more sad to me. Don&rsquo;t you yourselves feel sorry for the time spent on HOCs, render-props and other nonsense we threw away months later?</p>
+<p>Unfortunately, people have very little time for the latter. And I don&rsquo;t blame them. We&rsquo;re all like that. But every year the situation becomes more and more sad to me. Don&rsquo;t you yourselves feel sorry for the time spent on HOCs, render-props, custom syntax that changes from one major to another and other nonsense we threw away years and event months later?</p>
 <p>I&rsquo;m starting to see this as a direct correlation: apps are still being made with difficulty and high financial costs, they&rsquo;re hard to maintain, and instead of learning how to do even one platform right, we&rsquo;re wasting energy on compromises.</p>
 <h2 id="hijacked-syntax">Hijacked syntax</h2>
 <p>People may complain about the JSX syntax in React, or the template approach in Vue, or the components in Svelte. And with good reason! And not because these solutions are bad, but because they are simply wrong. The difference is huge.</p>
@@ -291,16 +288,7 @@ The ultimate goal is not to write as little code as possible, but to write as li
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">h1</span>&gt;Hey there&lt;/<span style="color:#f92672">h1</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span></code></pre></div><p><strong>Angular</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">@Component</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;component&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;h1&gt;Hey there&lt;/h1&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>,
-</span></span><span style="display:flex;"><span>})
-</span></span></code></pre></div><p>Well, actually they look fine. Even Angular, on the whole, doesn&rsquo;t seem like something to shrug off just yet.</p>
+</span></span></code></pre></div><p>Well, actually they look fine.</p>
 <p>But let&rsquo;s try to add some conditional rendering:</p>
 <p><strong>React</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSX" data-lang="JSX"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">ConditionalComponent</span>({ <span style="color:#a6e22e">showMessage</span> }) {
@@ -345,30 +333,17 @@ The ultimate goal is not to write as little code as possible, but to write as li
 </span></span><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">ConditionalComponent</span> <span style="color:#a6e22e">showMessage</span><span style="color:#f92672">=</span><span style="color:#e6db74">{true}</span> /&gt;
-</span></span></code></pre></div><p><strong>Angular</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Component</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;conditional-component&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;ng-container *ngIf=&#34;showMessage&#34;&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &lt;h1&gt;Hey there&lt;/h1&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;/ng-container&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>,
-</span></span><span style="display:flex;"><span>})
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConditionalComponent</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">Input</span>() <span style="color:#a6e22e">showMessage</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">conditional</span><span style="color:#f92672">-</span><span style="color:#a6e22e">component</span> [<span style="color:#a6e22e">showMessage</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;&lt;</span><span style="color:#960050;background-color:#1e0010">/conditional-component&gt;</span>
-</span></span></code></pre></div><p>Pardon my British, but what the schlocky-donkey rubbish is that?</p>
-<p>If-statements inside a view tree with fallback to null (or some plug component, doesn&rsquo;t really matter)? A <code>v-if</code> directive? What, a <code>{#if ...}</code> templating block? Structural directive with <code>*ngIf</code>? Need I say that there is nothing like this in the DOM API and it&rsquo;s all a cheap ass tricks? And I&rsquo;m not talking about the naming or something. It&rsquo;s about the concept itself.</p>
+</span></span></code></pre></div><p>Ugh.</p>
+<p>If-statements inside a view tree with fallback to null (or some plug component, doesn&rsquo;t really matter)? A <code>v-if</code> directive? What, a <code>{#if ...}</code> templating block? Need I say that there is nothing like this in the DOM API and it&rsquo;s all a cheap ass tricks? And I&rsquo;m not talking about the naming or something. It&rsquo;s about the concept itself.</p>
 <p>The one that stood out the most here, of course, was Vue. You either use <code>v-if</code> and destroy the components each time over again, or you stupidly hide the component. Using <code>display: none</code> in 2023? That&rsquo;s a great way to disrespect your own platform.</p>
-<p>But that doesn&rsquo;t mean that Vue is the only one with problems. Other technologies have tried to pull things onto HTML that shouldn&rsquo;t be pulled directly onto it at all.</p>
-<p>What abot rendering a list of something? Here it is:</p>
+<p>But that doesn&rsquo;t mean that Vue is the only one with problems.
+In React, for example, function-component content is full of side effects because of the nature of hooks concept.
+Therefore, re-renders are abused to recalculate side effects and update data, even when you dont even need that.</p>
+<p>Yes, I know that their position on this is «React is causing more re-renders than necessary, but its underlying mechanisms are designed to optimize performance and keep the UI in sync with the application&rsquo;s data.» But lets be real here - <strong>absolutely everyone</strong> are trying to get rid of re-renders. And various &ldquo;solutions&rdquo; like <code>useMemo</code> still do not guarantee absence of additional renderings.</p>
+<p>Excuse me, but this is all just a half-measures and and unnecessary compromises. Fast and optimized re-renders is not a solution. The solution would be to get rid of re-renders as a phenomenon.</p>
+<p>And this is possible with static initialization of the entire interface tree. Each element (or rather, the callback of an element inside the stack) will be calculated and called once to associate reactive values with nodes.
+That&rsquo;s it, the main task here is to execute the described code <strong>only once</strong>, and all that will happen further is the movement of processes and events along the DOM graph.</p>
+<p>Other technologies have their disadvantages too, but let&rsquo;s move on. What abot rendering a list of something? Here it is:</p>
 <p><strong>React</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">UserList() {</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
@@ -397,19 +372,8 @@ The ultimate goal is not to write as little code as possible, but to write as li
 </span></span><span style="display:flex;"><span>    {/each}
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">ul</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span></code></pre></div><p><strong>Angular</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">@Component</span>({
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user-list&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;ul&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &lt;li *ngFor=&#34;let user of users; let i = index&#34;&gt;{{ user.name }}&lt;/li&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &lt;/ul&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &lt;/div&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>,
-</span></span><span style="display:flex;"><span>})
 </span></span></code></pre></div><p>Oh, again. Fictitious syntax, templating, directives. And where is the guarantee that none of this will change in the future? There&rsquo;s no such guarantee. And it has happened before, am I right mr. React and mr. Vue? Where is the guarantee that once such a technology leaves the mainstream, it will not turn into a hard-to-maintain legacy technology? (hello Ember)</p>
-<p>Why do you - both users and creators of such solutions - continue to spawn failed technologies that go against the platform idiom? I haven&rsquo;t seen anything like this in mobile development, for example. There, no one is trying to come up with a magic pill; instead, people create convenient APIs to interact with the platform and don&rsquo;t try to hide reality.</p>
+<p>Why do you - both users and creators of such solutions - continue to spawn failed technologies that go against the platform idiom?</p>
 <h2 id="embrace-the-dom-api">Embrace the DOM API</h2>
 <p>So, let&rsquo;s move on to possible solutions to this situation. DOM API! There&rsquo;s a lot of interesting things about it; oddly enough, people have worked on it meticulously over the years. It&rsquo;s incredibly huge, it has a lot of features, and there are a number of such features that you can&rsquo;t hide from behind a wall of props.</p>
 <p>How would we solve the problem with conditional rendering, for example? Well, DOM API have <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/append">node.append()</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild">node.appendChild()</a> methods, <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/remove">node.remove()</a> method and <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected">node.isConnected</a> property. We can use it to add or remove a node at any time and determine if it is connected to the DOM tree. React, for example, basically does just that.</p>
@@ -651,7 +615,8 @@ Using the <code>map()</code> method, we can create a derived property (hello <co
 <h2 id="why-its-important">Why it&rsquo;s important</h2>
 <p>You may think I&rsquo;m being too aggressive with current mainstream solutions. But that&rsquo;s not true.</p>
 <p>In fact, I believe that each of these technologies is needed to some degree. Or was needed. At least for general frontend development. But what I don&rsquo;t like is that we&rsquo;re literally stuck in the past decade, and no one in the mainstream is trying to bring this to the attention of developers. As a result, our applications still have zero reproducibility, and the labor intensity of the tasks, even for monotonic ones, is featural.</p>
-<p>And instead of recognizing the failure of current practices, we continue to choose between different colors of the same felt-tip pen.</p>
+<p>I&rsquo;m not suggesting we discard all existing solutions. No, that would be silly. And I&rsquo;m not suggesting doing manual DOM manipulation every time by yourself. That should be done by the library/framework/technology/API/whatever. All I&rsquo;m saying is that maybe it&rsquo;s time to stop implementing unique &ldquo;snowflake&rdquo; type solutions that have serious design flaws? And start utilizing what our own platform offers us and develop its usability. Perhaps not in the form that was presented, but in some other form. But, at least to me, it looks potentially possible.</p>
+<p>Yet instead of recognizing the failure of current practices, we continue to choose between different colors of the same felt-tip pen.</p>
 <p>Respect your platform, please.</p>
 </section>
 

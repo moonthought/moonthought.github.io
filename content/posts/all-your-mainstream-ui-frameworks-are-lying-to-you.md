@@ -4,8 +4,8 @@ date = 2023-09-25T13:25:39+03:00
 draft = false
 +++
 
-What a lovely way to start an article. But don't get me wrong — this is not a clickbait.
-And I'm going to name-drop some technologies here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+What a lovely title to start an article. But don't get me wrong — this is not a clickbait.
+And yes, I'm going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
 
 In addition, this article is not a marketing one and is not intended to promote some other magic pill.
 
@@ -14,19 +14,19 @@ In addition, this article is not a marketing one and is not intended to promote 
 A few days ago, a teaser of Svelte 5 was unveiled with their [introduction of runes](https://svelte.dev/blog/runes).
 
 And almost everyone got excited about it. And I'm excited too. Excited, because I've already seen this approach to reactivity 5-6 years ago.
-All those `$props`, `$derived`, `$effects`, `$state`, signals – I've seen it all before. And I like it. And I think they're on the right track. Tho Svelte still clinging to mainstream solutions that have shown themselves incapable of conveniently solving complex web problems, but hopefully they'll get over it. But that's not what we're going to talk about.
+All those `$props`, `$derived`, `$effects`, `$state`, signals – I've seen it all before. And I like it. And I think they're on the right track, since it's just the beginning of a new approach within mainstream solutions. But that's not what we're going to talk about.
 
 What really pissed me off was is the same kludge to solve UI problems.
 
-Why does the solution for reactivity in components still require compilation? Why is hijacked HTML syntax with fake directives still being used? Why is the UI representation still described in an imperative way? And why is technology still trying to mimic HTML in the first place?
+Why does the solution for reactivity in components still require transpiling? Why is hijacked HTML syntax with fake directives still being used? Why is the UI representation still described in an imperative way? And why is technology still trying to mimic HTML in the first place?
 
 Let's start with the latter.
 
 ## Who says HTML is the right abstraction?
 
-A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It's just one way of representing that tree, and no one has said that this way is optimal enough. And rest assured, it's not.
+A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It's just one way of representing that tree, and no one has said that this way is optimal enough and appropriate for its time? And rest assured, it's not.
 
-Browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:
+In fact, There's nothing wrong with HTML itself - it's a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:
 * attributes
 * handlers
 * styles
@@ -43,7 +43,7 @@ They all try to reduce the diversity of DOM-node properties to a flat list of at
 — *complexity is categorised into two types: introduced and natural. Introduced complexity is introduced (sheesh) by libraries, frameworks, languages, paradigms, etc. Natural complexity is inherent in the platform itself and is designed to solve fundamental problems of the domain. A good engineer will reduce the introduced complexity and try to accept and deal with the natural complexity. Please stop hiding from natural complexity and start respecting your platform already.
 
 > A quick note on Svelte again: Rich Harris has put out an excellent video on [what's the deal with getters and setters](https://www.youtube.com/watch?v=NR8L5m73dtE&ab_channel=RichHarris) in which he responds to some people's concerns about Svelte's new approach to reactivity. But the only thing that wasn't sufficiently addressed was the «I have to write more code» take.
-The ultimate goal is not to write as little code as possible, but to write as little code as is necessary to explicitly describe the intent of your application. If the only thing the technology attracts/offers is "simplicity", then you're trying to sweep important nuances under the rug. You will still encounter them in the future, but from a different angle.
+The ultimate goal is not to write as little code as possible, but to write as little code as necessary to explicitly describe the intent of your application. If the only thing the technology attracts/offers is "simplicity", then you're trying to sweep important nuances under the rug. You will still encounter them in the future, but from a different angle.
 
 Sorry, but choosing between `onClick={...}`, `on:click={...}` and `@click="..."` is actually a lack of choice. And I'm tired of it.
 
@@ -55,7 +55,7 @@ In some ways, it is understandable why such solutions might have appeared ~decad
 And from here comes the main reason:
 * Because you need to have a lot of time to experiment and be able to accept new realities and the failure of current approaches.
 
-Unfortunately, people have very little time for the latter. And I don't blame them. We're all like that. But every year the situation becomes more and more sad to me. Don't you yourselves feel sorry for the time spent on HOCs, render-props and other nonsense we threw away months later?
+Unfortunately, people have very little time for the latter. And I don't blame them. We're all like that. But every year the situation becomes more and more sad to me. Don't you yourselves feel sorry for the time spent on HOCs, render-props, custom syntax that changes from one major to another and other nonsense we threw away years and event months later?
 
 I'm starting to see this as a direct correlation: apps are still being made with difficulty and high financial costs, they're hard to maintain, and instead of learning how to do even one platform right, we're wasting energy on compromises.
 
@@ -92,19 +92,7 @@ function Component() {
 </div>
 ```
 
-**Angular**
-```typescript
-@Component({
-  selector: 'component',
-  template: `
-    <div>
-      <h1>Hey there</h1>
-    </div>
-  `,
-})
-```
-
-Well, actually they look fine. Even Angular, on the whole, doesn't seem like something to shrug off just yet.
+Well, actually they look fine.
 
 But let's try to add some conditional rendering:
 
@@ -160,37 +148,24 @@ function ConditionalComponent({ showMessage }) {
 <ConditionalComponent showMessage={true} />
 ```
 
-**Angular**
-```js
-@Component({
-  selector: 'conditional-component',
-  template: `
-    <div>
-      <ng-container *ngIf="showMessage">
-        <h1>Hey there</h1>
-      </ng-container>
-    </div>
-  `,
-})
+Ugh.
 
-export class ConditionalComponent {
-  @Input() showMessage: boolean = false;
-}
-
-...
-
-<conditional-component [showMessage]="true"></conditional-component>
-```
-
-Pardon my British, but what the schlocky-donkey rubbish is that?
-
-If-statements inside a view tree with fallback to null (or some plug component, doesn't really matter)? A `v-if` directive? What, a `{#if ...}` templating block? Structural directive with `*ngIf`? Need I say that there is nothing like this in the DOM API and it's all a cheap ass tricks? And I'm not talking about the naming or something. It's about the concept itself.
+If-statements inside a view tree with fallback to null (or some plug component, doesn't really matter)? A `v-if` directive? What, a `{#if ...}` templating block? Need I say that there is nothing like this in the DOM API and it's all a cheap ass tricks? And I'm not talking about the naming or something. It's about the concept itself.
 
 The one that stood out the most here, of course, was Vue. You either use `v-if` and destroy the components each time over again, or you stupidly hide the component. Using `display: none` in 2023? That's a great way to disrespect your own platform.
 
-But that doesn't mean that Vue is the only one with problems. Other technologies have tried to pull things onto HTML that shouldn't be pulled directly onto it at all.
+But that doesn't mean that Vue is the only one with problems.
+In React, for example, function-component content is full of side effects because of the nature of hooks concept.
+Therefore, re-renders are abused to recalculate side effects and update data, even when you dont even need that.
 
-What abot rendering a list of something? Here it is:
+Yes, I know that their position on this is «React is causing more re-renders than necessary, but its underlying mechanisms are designed to optimize performance and keep the UI in sync with the application's data.» But lets be real here - **absolutely everyone** are trying to get rid of re-renders. And various "solutions" like `useMemo` still do not guarantee absence of additional renderings.
+
+Excuse me, but this is all just a half-measures and and unnecessary compromises. Fast and optimized re-renders is not a solution. The solution would be to get rid of re-renders as a phenomenon.
+
+And this is possible with static initialization of the entire interface tree. Each element (or rather, the callback of an element inside the stack) will be calculated and called once to associate reactive values with nodes.
+That's it, the main task here is to execute the described code **only once**, and all that will happen further is the movement of processes and events along the DOM graph.
+
+Other technologies have their disadvantages too, but let's move on. What abot rendering a list of something? Here it is:
 
 **React**
 ```typescript
@@ -229,23 +204,9 @@ function UserList() {
 </div>
 ```
 
-**Angular**
-```typescript
-@Component({
-  selector: 'user-list',
-  template: `
-    <div>
-      <ul>
-        <li *ngFor="let user of users; let i = index">{{ user.name }}</li>
-      </ul>
-    </div>
-  `,
-})
-```
-
 Oh, again. Fictitious syntax, templating, directives. And where is the guarantee that none of this will change in the future? There's no such guarantee. And it has happened before, am I right mr. React and mr. Vue? Where is the guarantee that once such a technology leaves the mainstream, it will not turn into a hard-to-maintain legacy technology? (hello Ember)
 
-Why do you - both users and creators of such solutions - continue to spawn failed technologies that go against the platform idiom? I haven't seen anything like this in mobile development, for example. There, no one is trying to come up with a magic pill; instead, people create convenient APIs to interact with the platform and don't try to hide reality.
+Why do you - both users and creators of such solutions - continue to spawn failed technologies that go against the platform idiom?
 
 ## Embrace the DOM API
 
@@ -537,6 +498,8 @@ You may think I'm being too aggressive with current mainstream solutions. But th
 
 In fact, I believe that each of these technologies is needed to some degree. Or was needed. At least for general frontend development. But what I don't like is that we're literally stuck in the past decade, and no one in the mainstream is trying to bring this to the attention of developers. As a result, our applications still have zero reproducibility, and the labor intensity of the tasks, even for monotonic ones, is featural.
 
-And instead of recognizing the failure of current practices, we continue to choose between different colors of the same felt-tip pen.
+I'm not suggesting we discard all existing solutions. No, that would be silly. And I'm not suggesting doing manual DOM manipulation every time by yourself. That should be done by the library/framework/technology/API/whatever. All I'm saying is that maybe it's time to stop implementing unique "snowflake" type solutions that have serious design flaws? And start utilizing what our own platform offers us and develop its usability. Perhaps not in the form that was presented, but in some other form. But, at least to me, it looks potentially possible.
+
+Yet instead of recognizing the failure of current practices, we continue to choose between different colors of the same felt-tip pen.
 
 Respect your platform, please.
