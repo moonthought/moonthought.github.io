@@ -212,9 +212,9 @@ Why do you - both users and creators of such solutions - continue to spawn faile
 
 So, let's move on to possible solutions to this situation. DOM API! There's a lot of interesting things about it; oddly enough, people have worked on it meticulously over the years. It's incredibly huge, it has a lot of features, and there are a number of such features that you can't hide from behind a wall of props.
 
-How would we solve the problem with conditional rendering, for example? Well, DOM API have [node.append()](https://developer.mozilla.org/en-US/docs/Web/API/Element/append) or [node.appendChild()](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) methods, [node.remove()](https://developer.mozilla.org/en-US/docs/Web/API/Element/remove) method and [node.isConnected](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) property. We can use it to add or remove a node at any time and determine if it is connected to the DOM tree. React, for example, basically does just that.
+How would we solve the problem with conditional rendering, for example? Well, DOM API have [node.append()](https://developer.mozilla.org/en-US/docs/Web/API/Element/append) or [node.appendChild()](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild) methods, [node.remove()](https://developer.mozilla.org/en-US/docs/Web/API/Element/remove) method and [node.isConnected](https://developer.mozilla.org/en-US/docs/Web/API/Node/isConnected) property. We can use it to add or remove a node at any time and determine if it is connected to the DOM tree.
 
-But here, too, they were reckless in taking this description outside of the component. But does it make any sense? The state of a node (even with its children) connected to a DOM tree should be reported by the component itself, not by any external blocks. So we could do something like that:
+The state of a node (even with its children) connected to a DOM tree should be reported by the component itself, not by any external blocks. So we could do something like that:
 
 ```typescript
 export function Component({ showMessage }) {
@@ -272,7 +272,11 @@ In addition, each of the variables or properties used in the code presented can 
 
 Also, this `list` approach renders the list a bit more interesting than it might seem at first glance. Instead of computing the entire contents of each item in a list, templates (js templates, not to be confused with templates from Vue and others) are created for the application to work with, and the templates are generated in advance, one for each `list` call. Thus, for each change in the reactive value of `users`, we only need to create a new instance of the already configured template, instead of calculating everything in runtime.
 
-But what about event handlers and attributes specification? Well, we can imagine something like the following:
+But unfortunately, many modern solutions utilize Virtual DOM and Reconciliation, introducing phases to double-check changes to structures returned from components. This is what leads to redraws and performance problems. As well as some artificial constraints.
+
+Gotta hand it to the Svelte, tho. Svelte does not rely on a virtual DOM and instead uses a compiler to convert components into JavaScript. This JS code will be pretty much efficient, but, alas, other problems appear: an unnecessary build step, Svelte-specific code is not really removed from the final bundle. And we still have a problem with re-renders.
+
+Ok, back to topic. What about event handlers and attributes specification? Well, we can imagine something like the following:
 
 ```typescript
 using(document.body, () => {
