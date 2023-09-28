@@ -24,9 +24,9 @@ Let's start with the latter.
 
 ## Who says HTML is the right abstraction?
 
-A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It's just one way of representing that tree, and no one has said that this way is optimal enough and appropriate for its time? And rest assured, it's not.
+A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It's just one way of representing that tree, and no one has said that this way is optimal enough and appropriate for its time and our purposes? And rest assured, it's not.
 
-In fact, There's nothing wrong with HTML itself - it's a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:
+In fact, there's nothing wrong with HTML itself - it's a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:
 * attributes
 * handlers
 * styles
@@ -270,9 +270,11 @@ List(users) { user in
 
 In addition, each of the variables or properties used in the code presented can be reactive. This way, every time we have a change in the list of users or their attributes, it will be reflected in the final layout.
 
+Why not `for/map` loop? Because for/map-loops are a block box: they're detached from the context of what's being called inside them. React, for example, requires developers to specify unique keys for each item in such a list. Yet another hack to solve the problem presented by themselves.
+
 Also, this `list` approach renders the list a bit more interesting than it might seem at first glance. Instead of computing the entire contents of each item in a list, templates (js templates, not to be confused with templates from Vue and others) are created for the application to work with, and the templates are generated in advance, one for each `list` call. Thus, for each change in the reactive value of `users`, we only need to create a new instance of the already configured template, instead of calculating everything in runtime.
 
-But unfortunately, many modern solutions utilize Virtual DOM and Reconciliation, introducing phases to double-check changes to structures returned from components. This is what leads to redraws and performance problems. As well as some artificial constraints.
+But unfortunately, many modern solutions utilize Virtual DOM and reconciliation, introducing phases to double-check changes to structures returned from components. This is what leads to redraws and performance problems. As well as some artificial constraints.
 
 Gotta hand it to the Svelte, tho. Svelte does not rely on a virtual DOM and instead uses a compiler to convert components into JavaScript. This JS code will be pretty much efficient, but, alas, other problems appear: an unnecessary build step, Svelte-specific code is not really removed from the final bundle. And we still have a problem with re-renders.
 
@@ -495,6 +497,18 @@ You don't need to reason about all these `createStore`, `createEvent`. Store is 
 
 What is important here is the very fact of describing the view, the view logic. I believe that even less trivial descriptions of view should not require extraneous solutions. I'm just trying to get you to think. Are the existing solutions doing their job optimally? No? Are you sure why **exactly** not?
 
+
+## HTMX me daddy
+
+HTMX is great! And it's slowly gaining it's popularity. Especially thanks to ThePrimeagen.
+
+But this technology is just another anti-pattern. I would even say anti-platform one.
+
+Don't get me wrong, HTMX offers a solution to the problem and, as far as I can tell, does an excellent job of handling it within its capabilities and overall approach. But this technology is another attempt to turn a blind eye to the frontend and just turn the problem 180 degrees. Instead of solving problems on the frontend, we just pass them to the backend in the hope that "they'll figure it out there."
+
+Yeah, no one likes frontend. Not even frontenders themselves (generalized statement for the sake of a joke, please don't hit me). But can we finally admit that user interactions is the client-side thing? Ever seen mobile apps send a request to the server to get a new layout when interacting with a user? Or desktop apps? (I hope not, it sounds scary)
+
+HTMX has its place, but let's leave it to the backend-minded developers and start relying on our own capabilities and platform already.
 
 ## Why it's important
 
