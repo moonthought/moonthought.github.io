@@ -510,6 +510,12 @@ Yeah, no one likes frontend. Not even frontenders themselves (generalized statem
 
 In addition, using HTMX introduces a new problem in the form of Internet connection speed. Sending a request to the server at every sneeze is very wasteful. Not everyone and everywhere has a fast enough Internet connection. Users with mobile internet from India and the African continent will "thank you." And they are, by the way, the fastest growing new market right now. But the possibilities of average users are still [very limited by the current state of technological progress there](https://officechai.com/startups/kaios/).
 
+Also, this is going to be a bit toxic, but try to do the following on HTMX:
+Create a reservation form to reserve 4-8 seats in row 16 of the theater for the 1:00pm to 3:30pm session.
+The 6th seat is already sold out. There is a 5% discount if you purchase 3+ seats. Reservations are made by a regular customer, so they get free popcorn. The browser time zone is CT, the theater is in the ET time zone. The server occasionally responds with a 502.
+
+That's what we do in the frontend, not Todo MVCs with hypermedias.
+
 HTMX has its place, but let's leave it to the backend-minded developers and start relying on our own capabilities and platform already.
 
 ## Why it's important
