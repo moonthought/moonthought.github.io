@@ -508,6 +508,8 @@ Don't get me wrong, HTMX offers a solution to the problem and, as far as I can t
 
 Yeah, no one likes frontend. Not even frontenders themselves (generalized statement for the sake of a joke, please don't hit me). But can we finally admit that user interactions is the client-side thing? Ever seen mobile apps send a request to the server to get a new layout when interacting with a user? Or desktop apps? (I hope not, it sounds scary)
 
+In addition, using HTMX introduces a new problem in the form of Internet connection speed. Sending a request to the server at every sneeze is very wasteful. Not everyone and everywhere has a fast enough Internet connection. Users with mobile internet from India and the African continent will "thank you." And they are, by the way, the fastest growing new market right now. But the possibilities of average users are still [very limited by the current state of technological progress there](https://officechai.com/startups/kaios/).
+
 HTMX has its place, but let's leave it to the backend-minded developers and start relying on our own capabilities and platform already.
 
 ## Why it's important
