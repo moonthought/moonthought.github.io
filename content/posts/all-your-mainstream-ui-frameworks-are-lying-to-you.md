@@ -16,7 +16,7 @@ A few days ago, a teaser of Svelte 5 was unveiled with their [introduction of ru
 And almost everyone got excited about it. And I'm excited too. Excited, because I've already seen this approach to reactivity 5-6 years ago.
 All those `$props`, `$derived`, `$effects`, `$state`, signals – I've seen it all before. And I like it. And I think they're on the right track, since it's just the beginning of a new approach within mainstream solutions. But that's not what we're going to talk about.
 
-What really pissed me off was is the same kludge to solve UI problems.
+What really pissed me off was the same kludge to solve UI problems.
 
 Why does the solution for reactivity in components still require transpiling? Why is hijacked HTML syntax with fake directives still being used? Why is the UI representation still described in an imperative way? And why is technology still trying to mimic HTML in the first place?
 
@@ -204,7 +204,7 @@ function UserList() {
 </div>
 ```
 
-Oh, again. Fictitious syntax, templating, directives. And where is the guarantee that none of this will change in the future? There's no such guarantee. And it has happened before, am I right mr. React and mr. Vue? Where is the guarantee that once such a technology leaves the mainstream, it will not turn into a hard-to-maintain legacy technology? (hello Ember)
+Oh, again. Fictitious syntax, templating, directives, for/map loops. And where is the guarantee that none of this will change in the future? There's no such guarantee. And it has happened before, am I right mr. React and mr. Vue? Where is the guarantee that once such a technology leaves the mainstream, it will not turn into a hard-to-maintain legacy technology? (hello Ember)
 
 Why do you - both users and creators of such solutions - continue to spawn failed technologies that go against the platform idiom?
 
@@ -270,13 +270,14 @@ List(users) { user in
 
 In addition, each of the variables or properties used in the code presented can be reactive. This way, every time we have a change in the list of users or their attributes, it will be reflected in the final layout.
 
-Why not `for/map` loop? Because for/map-loops are a block box: they're detached from the context of what's being called inside them. React, for example, requires developers to specify unique keys for each item in such a list. Yet another hack to solve the problem presented by themselves.
+Why not `for/map` loop? Because for/map-loops are a black box: they're detached from the context of what's being called inside them. React, for example, requires developers to specify unique keys for each item in such a list. Yet another hack to solve the problem presented by themselves.
 
-Also, this `list` approach renders the list a bit more interesting than it might seem at first glance. Instead of computing the entire contents of each item in a list, templates (js templates, not to be confused with templates from Vue and others) are created for the application to work with, and the templates are generated in advance, one for each `list` call. Thus, for each change in the reactive value of `users`, we only need to create a new instance of the already configured template, instead of calculating everything in runtime.
+
+Also, this `list` function is a bit more interesting than it might seem at first glance. Instead of computing each item in a list each time, templates (js templates, not to be confused with templates from Vue and others) for a content are generated in advance, one for each `list` call. Thus, for each change in the reactive value of `users` array, we only need to create a new instance of the already configured template, instead of calculating everything in runtime.
 
 But unfortunately, many modern solutions utilize Virtual DOM and reconciliation, introducing phases to double-check changes to structures returned from components. This is what leads to redraws and performance problems. As well as some artificial constraints.
 
-Gotta hand it to the Svelte, tho. Svelte does not rely on a virtual DOM and instead uses a compiler to convert components into JavaScript. This JS code will be pretty much efficient, but, alas, other problems appear: an unnecessary build step, Svelte-specific code is not really removed from the final bundle. And we still have a problem with re-renders.
+Gotta hand it to the Svelte, tho. Svelte does not rely on a virtual DOM and instead uses a compiler to convert components into JavaScript. This JS code will be pretty much efficient, but other problems appear: an unnecessary build step, Svelte-specific code is not really removed from the final bundle. And we still have a problem with re-renders.
 
 Ok, back to topic. What about event handlers and attributes specification? Well, we can imagine something like the following:
 
