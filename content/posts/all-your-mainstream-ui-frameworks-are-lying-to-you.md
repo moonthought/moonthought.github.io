@@ -4,6 +4,8 @@ date = 2023-09-25T13:25:39+03:00
 draft = false
 +++
 
+###### 13 min read. Source: trust me bro.
+
 What a lovely title to start an article. But don't get me wrong — this is not a clickbait.
 And yes, I'm going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
 
@@ -13,18 +15,17 @@ In addition, this article is not a marketing one and is not intended to promote 
 
 A few days ago, a teaser of Svelte 5 was unveiled with their [introduction of runes](https://svelte.dev/blog/runes).
 
-And almost everyone got excited about it. And I'm excited too. Excited, because I've already seen this approach to reactivity 5-6 years ago.
-All those `$props`, `$derived`, `$effects`, `$state`, signals – I've seen it all before. And I like it. And I think they're on the right track, since it's just the beginning of a new approach within mainstream solutions. But that's not what we're going to talk about.
+And almost everyone got excited about it. And I'm excited too.
 
-What really pissed me off was the same kludge to solve UI problems.
+But what really pissed me off was the same kludge to solve UI problems.
 
-Why does the solution for reactivity in components still require transpiling? Why is hijacked HTML syntax with fake directives still being used? Why is the UI representation still described in an imperative way? And why is technology still trying to mimic HTML in the first place?
+Why does the solution for reactivity in components still require transpiling/compiling? Why is hijacked HTML syntax with fake directives still being used? Why is the UI representation still described in an imperative way? And why is technology still trying to mimic HTML in the first place?
 
 Let's start with the latter.
 
 ## Who says HTML is the right abstraction?
 
-A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It's just one way of representing that tree, and no one has said that this way is optimal enough and appropriate for its time and our purposes? And rest assured, it's not.
+A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It's just one way of representing that tree, and no one has said that this way is optimal enough and appropriate for its time and our purposes. And rest assured, it's not.
 
 In fact, there's nothing wrong with HTML itself - it's a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:
 * attributes
@@ -36,6 +37,9 @@ In fact, there's nothing wrong with HTML itself - it's a good technology. For it
 * children
 
 And unfortunately, many developers don't realise or don't want to realise that we don't need to hide from this complexity*. It's our platform, and it's our responsibility to figure it out.
+
+Moreover, modern development assumes component decomposition. And where there is decomposition, there is composition. That is, we need a tool for creating component instances, customising them and connecting them with each other by reactive links of different directions. HTML just doesn't allow you to do that
+
 Unfortunately, almost all UI solutions fool themselves and us time and time again by using the most primitive technique - the suggestion of simplicity.
 
 They all try to reduce the diversity of DOM-node properties to a flat list of attributes. It doesn't work. And it's perfectly visible. Reducing at least seven categories of DOM-node properties to a flat list of attributes doesn't make life any easier, there are still seven categories, they just turn into flat mincemeat.
@@ -44,6 +48,8 @@ They all try to reduce the diversity of DOM-node properties to a flat list of at
 
 > A quick note on Svelte again: Rich Harris has put out an excellent video on [what's the deal with getters and setters](https://www.youtube.com/watch?v=NR8L5m73dtE&ab_channel=RichHarris) in which he responds to some people's concerns about Svelte's new approach to reactivity. But the only thing that wasn't sufficiently addressed was the «I have to write more code» take.
 The ultimate goal is not to write as little code as possible, but to write as little code as necessary to explicitly describe the intent of your application. If the only thing the technology attracts/offers is "simplicity", then you're trying to sweep important nuances under the rug. You will still encounter them in the future, but from a different angle.
+
+## They're all the same, actually
 
 Sorry, but choosing between `onClick={...}`, `on:click={...}` and `@click="..."` is actually a lack of choice. And I'm tired of it.
 
@@ -152,20 +158,20 @@ Ugh.
 
 If-statements inside a view tree with fallback to null (or some plug component, doesn't really matter)? A `v-if` directive? What, a `{#if ...}` templating block? Need I say that there is nothing like this in the DOM API and it's all a cheap ass tricks? And I'm not talking about the naming or something. It's about the concept itself.
 
-The one that stood out the most here, of course, was Vue. You either use `v-if` and destroy the components each time over again, or you stupidly hide the component. Using `display: none` in 2023? That's a great way to disrespect your own platform.
+The one that stood out the most here, of course, was Vue. You either use `v-if` and **destroy** the components each time over again, or you stupidly hide the component. Using `display: none` in 2023? That's a great way to disrespect your own platform.
 
 But that doesn't mean that Vue is the only one with problems.
-In React, for example, function-component content is full of side effects because of the nature of hooks concept.
+In React, for example, function-component content is full of side effects.
 Therefore, re-renders are abused to recalculate side effects and update data, even when you dont even need that.
 
-Yes, I know that their position on this is «React is causing more re-renders than necessary, but its underlying mechanisms are designed to optimize performance and keep the UI in sync with the application's data.» But lets be real here - **absolutely everyone** are trying to get rid of re-renders. And various "solutions" like `useMemo` still do not guarantee absence of additional renderings.
+«React is causing more redraws than necessary, but its underlying mechanisms are designed to optimize performance and keep the UI in sync with the application's data.» But lets be real here - **absolutely everyone** are trying to get rid of re-renders. And various "solutions" like `useMemo` and `useCallback` still do not guarantee absence of additional renderings.
 
 Excuse me, but this is all just a half-measures and unnecessary compromises. Fast and optimized re-renders is not a solution. The solution would be to get rid of them as a phenomenon.
 
 And this is possible with static initialization of the entire interface tree. Each element (or rather, the callback of an element inside the stack) will be calculated and called once to associate reactive values with nodes.
-That's it, the main task here is to execute the described code **only once**, and all that will happen further is the movement of processes and events along the DOM graph.
+That's it, the main task here is to execute the described code **only once**, and all that will happen further is the data/events flow along the DOM graph.
 
-Other technologies have their disadvantages too, but let's move on. What abot rendering a list of something? Here it is:
+Let's move on. What abot rendering a list of something? Here it is:
 
 **React**
 ```typescript
@@ -204,9 +210,7 @@ function UserList() {
 </div>
 ```
 
-Oh, again. Fictitious syntax, templating, directives, for/map loops. And where is the guarantee that none of this will change in the future? There's no such guarantee. And it has happened before, am I right mr. React and mr. Vue? Where is the guarantee that once such a technology leaves the mainstream, it will not turn into a hard-to-maintain legacy technology? (hello Ember)
-
-Why do you - both users and creators of such solutions - continue to spawn failed technologies that go against the platform idiom?
+Again, fictitious syntax, templating, directives, for/map loops. And where is the guarantee that none of this will change in the future? There's no such guarantee. And it has happened before, am I right mr. React and mr. Vue? Where is the guarantee that once such a technology leaves the mainstream, it will not turn into a hard-to-maintain legacy technology? (hello Ember)
 
 ## Embrace the DOM API
 
@@ -235,11 +239,13 @@ using(body, () => {
 })
 ```
 
+Note, this is just an example of pseudo-code.
+
 This approach borrows ideas from SwiftUI and Flutter. Where the second callback argument is an alternative to SwiftUI's blocks for nesting components, and the `visible` property is an analogue of the `visible` property from Flutter as is. And note that `visible` here is not a "hack" as in Vue, but an actual insertion/extraction of a DOM node from a subtree.
 
 And to do so, we didn't need to invent some abstract syntax to mimic the behaviour we needed. Yes, I realize that you may not like javascript, and you may have your reasons. But the "native" language of the frontend is still javascript, and trying to get around it with fake solutions only makes things worse. We've seen it many times before.
 
-Okay, the approach with `visible` is somewhat clear. What about the rendering the list of components? Here it is:
+Okay, the approach with `visible` is somewhat clear. What about rendering the list of components? Here it is:
 
 ```typescript
 export const function User({ key, name, isRestricted }) {
@@ -270,14 +276,13 @@ List(users) { user in
 
 In addition, each of the variables or properties used in the code presented can be reactive. This way, every time we have a change in the list of users or their attributes, it will be reflected in the final layout.
 
-Why not `for/map` loop? Because for/map-loops are a black box: they're detached from the context of what's being called inside them. React, for example, requires developers to specify unique keys for each item in such a list. Yet another hack to solve the problem presented by themselves.
+Why not `for/map` loop? Because for/map-loops are a black box: they're detached from the context of what's being called inside them and we can't act in advance. React, for example, requires developers to specify unique keys for each item in such a list to make them stable. Yet another hack to solve the problem presented by themselves.
 
-
-Also, this `list` function is a bit more interesting than it might seem at first glance. Instead of computing each item in a list each time, templates (js templates, not to be confused with templates from Vue and others) for a content are generated in advance, one for each `list` call. Thus, for each change in the reactive value of `users` array, we only need to create a new instance of the already configured template, instead of calculating everything in runtime.
+Also, this `list` function above is a bit more interesting than it might seem at first glance. Instead of computing each item in a list each time it changes, templates (js templates, not to be confused with templates from Vue and others) for a content are generated in advance, one for each `list` call. Thus, for each change in the reactive value of `users` array, we only need to create a new instance of the already configured template, instead of calculating everything in runtime.
 
 But unfortunately, many modern solutions utilize Virtual DOM and reconciliation, introducing phases to double-check changes to structures returned from components. This is what leads to redraws and performance problems. As well as some artificial constraints.
 
-Gotta hand it to the Svelte, tho. Svelte does not rely on a virtual DOM and instead uses a compiler to convert components into JavaScript. This JS code will be pretty much efficient, but other problems appear: an unnecessary build step, Svelte-specific code is not really removed from the final bundle. And we still have a problem with re-renders.
+Gotta hand it to the Svelte, tho. Svelte does not rely on a virtual DOM and instead uses a compiler to convert components into JavaScript. This JS code will be pretty much efficient, but other problems appear: an unnecessary build step and Svelte-specific code is not really removed from the final bundle. And we still have a problem with re-renders and fake syntax.
 
 Ok, back to topic. What about event handlers and attributes specification? Well, we can imagine something like the following:
 
@@ -322,7 +327,7 @@ using(document.body, () => {
 })
 ```
 
-Here `changeUsername` and `changePassword` are events to reactively change perspective values. And `fields` is a reactive object with the attributes themselves. Yes, a store. Like it or not.
+Here `changeUsername` and `changePassword` are events to reactively change perspective values. And `fields` is a reactive object with the attributes themselves.
 Using the `map()` method, we can create a derived property (hello `$derived` from Svelte) that will update when the username or password is updated and change the attribute of the button.
 
 I know what you might think looking at it for the first time:
@@ -494,7 +499,7 @@ export const LogsList = () => {
 };
 ```
 
-You don't need to reason about all these `createStore`, `createEvent`. Store is just a reactive value, and event is just a signal to change them or invoke execution of some effect. They can be from any library.
+No need to reason about all these `createStore`, `createEvent`. Store is just a reactive value, and event is just a signal to change them or invoke execution of some effect. They can be from any library.
 
 What is important here is the very fact of describing the view, the view logic. I believe that even less trivial descriptions of view should not require extraneous solutions. I'm just trying to get you to think. Are the existing solutions doing their job optimally? No? Are you sure why **exactly** not?
 
@@ -516,9 +521,11 @@ Also, this is going to be a bit toxic, but try to do the following on HTMX:
 Create a reservation form to reserve 4-8 seats in row 16 of the theater for the 1:00pm to 3:30pm session.
 The 6th seat is already sold out. There is a 5% discount if you purchase 3+ seats. Reservations are made by a regular customer, so they get free popcorn. The browser time zone is CT, the theater is in the ET time zone. The server occasionally responds with a 502.
 
-That's what we do in the frontend, not Todo MVCs with hypermedias.
+That's what we do on the frontend, not Todo MVCs with hypermedias.
 
-HTMX has its place, but let's leave it to the backend-minded developers and start relying on our own capabilities and platform already.
+HTMX has its place, but let's leave it to specific backend-centered tasks and start relying on our own capabilities and platform already.
+
+
 
 ## Why it's important
 
