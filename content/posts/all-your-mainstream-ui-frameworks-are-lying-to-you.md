@@ -4,7 +4,7 @@ date = 2023-09-25T13:25:39+03:00
 draft = false
 +++
 
-###### 13 min read. Source: trust me bro.
+###### 14 min read. Source: trust me bro.
 
 What a lovely title to start an article. But don't get me wrong — this is not a clickbait.
 And yes, I'm going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
@@ -27,7 +27,9 @@ Let's start with the latter.
 
 A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It's just one way of representing that tree, and no one has said that this way is optimal enough and appropriate for its time and our purposes. And rest assured, it's not.
 
-In fact, there's nothing wrong with HTML itself - it's a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:
+In fact, there's nothing wrong with HTML itself - it's a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. Moreover, all the famous client libraries/frameworks now generates the DOM directly via JS-API, bypassing the HTML representation. This means that not only HTML, but also other DOM serialisation formats can be used as the target DOM description language. For example [HAML](https://haml.info/docs/yardoc/file.REFERENCE.html) or [JSON](https://www.npmjs.com/package/html2json). Yup. In this light, the use of HTML templates is more a tribute to tradition than a real necessity.
+
+Also, to fully describe each DOM node, there should be seven categories of properties:
 * attributes
 * handlers
 * styles
@@ -38,16 +40,77 @@ In fact, there's nothing wrong with HTML itself - it's a good technology. For it
 
 And unfortunately, many developers don't realise or don't want to realise that we don't need to hide from this complexity*. It's our platform, and it's our responsibility to figure it out.
 
-Moreover, modern development assumes component decomposition. And where there is decomposition, there is composition. That is, we need a tool for creating component instances, customising them and connecting them with each other by reactive links of different directions. HTML just doesn't allow you to do that
+Moreover, modern development assumes component decomposition. And where there is decomposition, there is composition. That is, we need a tool for creating component instances, customising them and connecting them with each other by reactive links of different directions. HTML just doesn't allow you to do that.
 
 Unfortunately, almost all UI solutions fool themselves and us time and time again by using the most primitive technique - the suggestion of simplicity.
 
 They all try to reduce the diversity of DOM-node properties to a flat list of attributes. It doesn't work. And it's perfectly visible. Reducing at least seven categories of DOM-node properties to a flat list of attributes doesn't make life any easier, there are still seven categories, they just turn into flat mincemeat.
 
-— *complexity is categorised into two types: introduced and natural. Introduced complexity is introduced (sheesh) by libraries, frameworks, languages, paradigms, etc. Natural complexity is inherent in the platform itself and is designed to solve fundamental problems of the domain. A good engineer will reduce the introduced complexity and try to accept and deal with the natural complexity. Please stop hiding from natural complexity and start respecting your platform already.
+## What color is you complexity?
+
+Complexity is categorised into two types: introduced and inherent. Introduced complexity is introduced (sheesh) by libraries, frameworks, languages, paradigms, etc. Inherent complexity is inherent (stop) in the platform itself and is designed to solve fundamental problems of the domain. A good engineer will reduce the introduced complexity and try to accept and deal with the inherent complexity. Please stop hiding from it and start respecting your platform already.
 
 > A quick note on Svelte again: Rich Harris has put out an excellent video on [what's the deal with getters and setters](https://www.youtube.com/watch?v=NR8L5m73dtE&ab_channel=RichHarris) in which he responds to some people's concerns about Svelte's new approach to reactivity. But the only thing that wasn't sufficiently addressed was the «I have to write more code» take.
 The ultimate goal is not to write as little code as possible, but to write as little code as necessary to explicitly describe the intent of your application. If the only thing the technology attracts/offers is "simplicity", then you're trying to sweep important nuances under the rug. You will still encounter them in the future, but from a different angle.
+
+## But it's just HTML
+
+The main argument for HTML-like solutions in modern frontend is «developers found it familiar.» And if you've been working with HTML already then, let's say, Vue or Angular templates really just an extension to something you're already proficient with. But it's not. Because it's not HTML. No matter what anyone tells you.
+
+That is, in essence, all such formats are [simulacrum](https://en.wikipedia.org/wiki/Simulacrum).
+
+You might think it's just an extension, but it's actually a completely different format. Today it is presented in a form similar to HTML, and tomorrow there is nothing stopping it from turning into a completely unique form. Also, in many such formats, each attribute has a different semantics, but syntactically they all look the same, which again can be misleading.
+
+How about this Angular "template:" (syntax highlighting is trash, sorry for that)
+
+```html
+<bi-panel class="example">
+	<check-box
+		class="editable"
+		side="left"
+		[(checked)]="editable"
+		i18n
+		>
+		Editable
+	</check-box>
+
+	<text-area
+		#input
+		class="input"
+		side="left"
+		[(value)]="text"
+		[enabled]="editable"
+		placeholer="Markdown content.."
+		i18n-placeholder="Showed when input is empty"
+	/>
+
+	<div
+		*ngIf="text"
+		class="output-label"
+		side="right"
+		i18n
+		>
+		Result
+	</div>
+
+	<mark-down
+		*ngIf="text"
+		class="output"
+		side="right"
+		text="{{text}}"
+	/>
+</bi-panel>
+```
+
+* `#input` is a local identifier, for access via TS.
+* `class="editable"` is the name of the class for binding styles via CSS.
+* `side="left"` is the name of the slot where this element will be placed.
+* `[(checked)]="editable"` is the two-way binding of the properties of the nested and outer components.
+* `[enabled]="editable"` is one-way.
+* `text="{{text}}"` - and this is the same.
+* `placeholer="Markdown content..."` - is some kind of markeddown text.
+* `i18n-placeholder="Showed when input is empty."` - and this is suddenly an indication that the placeholder attribute is translatable, and an explanation to the translator.
+* `*ngIf="text"` - this is not related to the component at all, but regulates whether the component will be rendered in the parent.
 
 ## They're all the same, actually
 
@@ -171,7 +234,7 @@ Excuse me, but this is all just a half-measures and unnecessary compromises. Fas
 And this is possible with static initialization of the entire interface tree. Each element (or rather, the callback of an element inside the stack) will be calculated and called once to associate reactive values with nodes.
 That's it, the main task here is to execute the described code **only once**, and all that will happen further is the data/events flow along the DOM graph.
 
-Let's move on. What abot rendering a list of something? Here it is:
+Let's move on. What abot rendering a list of something?
 
 **React**
 ```typescript
@@ -327,9 +390,6 @@ using(document.body, () => {
 })
 ```
 
-Here `changeUsername` and `changePassword` are events to reactively change perspective values. And `fields` is a reactive object with the attributes themselves.
-Using the `map()` method, we can create a derived property (hello `$derived` from Svelte) that will update when the username or password is updated and change the attribute of the button.
-
 I know what you might think looking at it for the first time:
 * It looks very unusual
 * Hella verbose
@@ -348,7 +408,7 @@ Verbose? Yes, I agree. This approach looks more verbose than what React, Vue, Sv
 
 Moreover, you don't need to work directly with the DOM API. All you really need is a convenient JS API to interact with it. I am sure that the view tree should be managed by native tools. And manual work on adding, removing, updating the tree? Yes, this one can be put under the hood of some technologies.
 
-Once again, I'm not trying to sell you some new blazingly kool-aid nuts technology. Instead, I just want to point out the problems of existing solutions and how they can be solved by native tools without reinventing the wheel.
+I'm not trying to sell you some new blazingly kool-aid nuts technology. Instead, I just want to point out the problems of existing solutions and how they can be solved by native tools without reinventing the wheel.
 
 I'll say it again - start respecting your own platform. Everyone has learned to work with their platform, unlike the frontend developers who try to cover themselves with yet another bogus solution year after year.
 
@@ -526,6 +586,8 @@ That's what we do on the frontend, not Todo MVCs with hypermedias.
 HTMX has its place, but let's leave it to specific backend-centered tasks and start relying on our own capabilities and platform already.
 
 
+## Aren't you too obsessed with the syntax?
+Ye, why? I mean, some may say «arguing over syntax is a bit sad, since It mostly just doesn't matter», yet many will also hate the syntax presented. So it does matter after all? In fact, syntax has an incredibly large role in "defining" a technology, but I'll try to cover it in a separate article.
 
 ## Why it's important
 

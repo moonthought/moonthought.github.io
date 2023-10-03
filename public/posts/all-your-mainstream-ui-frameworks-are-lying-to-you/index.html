@@ -49,7 +49,7 @@
   
   
   
-  <meta name="description" content="13 min read. Source: trust me bro. What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+  <meta name="description" content="14 min read. Source: trust me bro. What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
 In addition, this article is not a marketing one and is not intended to promote some other magic pill." />
   <meta name="author" content="Moonthoughts" />
   
@@ -112,15 +112,15 @@ if (!doNotTrack) {
 
   
   <meta itemprop="name" content="All your mainstream UI frameworks are lying to you">
-<meta itemprop="description" content="13 min read. Source: trust me bro. What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+<meta itemprop="description" content="14 min read. Source: trust me bro. What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
 In addition, this article is not a marketing one and is not intended to promote some other magic pill."><meta itemprop="datePublished" content="2023-09-25T13:25:39+03:00" />
 <meta itemprop="dateModified" content="2023-09-25T13:25:39+03:00" />
-<meta itemprop="wordCount" content="3644">
+<meta itemprop="wordCount" content="4006">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="All your mainstream UI frameworks are lying to you"/>
-<meta name="twitter:description" content="13 min read. Source: trust me bro. What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
+<meta name="twitter:description" content="14 min read. Source: trust me bro. What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait. And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.
 In addition, this article is not a marketing one and is not intended to promote some other magic pill."/>
 
   
@@ -224,7 +224,7 @@ In addition, this article is not a marketing one and is not intended to promote 
     
   </header>
 
-  <section><h6 id="13-min-read-source-trust-me-bro">13 min read. Source: trust me bro.</h6>
+  <section><h6 id="14-min-read-source-trust-me-bro">14 min read. Source: trust me bro.</h6>
 <p>What a lovely title to start an article. But don&rsquo;t get me wrong — this is not a clickbait.
 And yes, I&rsquo;m going to name-drop some technologies and names here and there. Not to tarnish their reputation, but to better reveal a thought that has haunted me for a long time.</p>
 <p>In addition, this article is not a marketing one and is not intended to promote some other magic pill.</p>
@@ -236,7 +236,8 @@ And yes, I&rsquo;m going to name-drop some technologies and names here and there
 <p>Let&rsquo;s start with the latter.</p>
 <h2 id="who-says-html-is-the-right-abstraction">Who says HTML is the right abstraction?</h2>
 <p>A provocative question? Perhaps. But HTML itself is nothing more than a projection of the DOM tree. It&rsquo;s just one way of representing that tree, and no one has said that this way is optimal enough and appropriate for its time and our purposes. And rest assured, it&rsquo;s not.</p>
-<p>In fact, there&rsquo;s nothing wrong with HTML itself - it&rsquo;s a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. And to fully describe each DOM node, there should be seven categories of properties:</p>
+<p>In fact, there&rsquo;s nothing wrong with HTML itself - it&rsquo;s a good technology. For its own purposes. But browsers do not deal directly with HTML, but with DOM nodes. Moreover, all the famous client libraries/frameworks now generates the DOM directly via JS-API, bypassing the HTML representation. This means that not only HTML, but also other DOM serialisation formats can be used as the target DOM description language. For example <a href="https://haml.info/docs/yardoc/file.REFERENCE.html">HAML</a> or <a href="https://www.npmjs.com/package/html2json">JSON</a>. Yup. In this light, the use of HTML templates is more a tribute to tradition than a real necessity.</p>
+<p>Also, to fully describe each DOM node, there should be seven categories of properties:</p>
 <ul>
 <li>attributes</li>
 <li>handlers</li>
@@ -247,14 +248,67 @@ And yes, I&rsquo;m going to name-drop some technologies and names here and there
 <li>children</li>
 </ul>
 <p>And unfortunately, many developers don&rsquo;t realise or don&rsquo;t want to realise that we don&rsquo;t need to hide from this complexity*. It&rsquo;s our platform, and it&rsquo;s our responsibility to figure it out.</p>
-<p>Moreover, modern development assumes component decomposition. And where there is decomposition, there is composition. That is, we need a tool for creating component instances, customising them and connecting them with each other by reactive links of different directions. HTML just doesn&rsquo;t allow you to do that</p>
+<p>Moreover, modern development assumes component decomposition. And where there is decomposition, there is composition. That is, we need a tool for creating component instances, customising them and connecting them with each other by reactive links of different directions. HTML just doesn&rsquo;t allow you to do that.</p>
 <p>Unfortunately, almost all UI solutions fool themselves and us time and time again by using the most primitive technique - the suggestion of simplicity.</p>
 <p>They all try to reduce the diversity of DOM-node properties to a flat list of attributes. It doesn&rsquo;t work. And it&rsquo;s perfectly visible. Reducing at least seven categories of DOM-node properties to a flat list of attributes doesn&rsquo;t make life any easier, there are still seven categories, they just turn into flat mincemeat.</p>
-<p>— *complexity is categorised into two types: introduced and natural. Introduced complexity is introduced (sheesh) by libraries, frameworks, languages, paradigms, etc. Natural complexity is inherent in the platform itself and is designed to solve fundamental problems of the domain. A good engineer will reduce the introduced complexity and try to accept and deal with the natural complexity. Please stop hiding from natural complexity and start respecting your platform already.</p>
+<h2 id="what-color-is-you-complexity">What color is you complexity?</h2>
+<p>Complexity is categorised into two types: introduced and inherent. Introduced complexity is introduced (sheesh) by libraries, frameworks, languages, paradigms, etc. Inherent complexity is inherent (stop) in the platform itself and is designed to solve fundamental problems of the domain. A good engineer will reduce the introduced complexity and try to accept and deal with the inherent complexity. Please stop hiding from it and start respecting your platform already.</p>
 <blockquote>
 <p>A quick note on Svelte again: Rich Harris has put out an excellent video on <a href="https://www.youtube.com/watch?v=NR8L5m73dtE&amp;ab_channel=RichHarris">what&rsquo;s the deal with getters and setters</a> in which he responds to some people&rsquo;s concerns about Svelte&rsquo;s new approach to reactivity. But the only thing that wasn&rsquo;t sufficiently addressed was the «I have to write more code» take.
 The ultimate goal is not to write as little code as possible, but to write as little code as necessary to explicitly describe the intent of your application. If the only thing the technology attracts/offers is &ldquo;simplicity&rdquo;, then you&rsquo;re trying to sweep important nuances under the rug. You will still encounter them in the future, but from a different angle.</p>
 </blockquote>
+<h2 id="but-its-just-html">But it&rsquo;s just HTML</h2>
+<p>The main argument for HTML-like solutions in modern frontend is «developers found it familiar.» And if you&rsquo;ve been working with HTML already then, let&rsquo;s say, Vue or Angular templates really just an extension to something you&rsquo;re already proficient with. But it&rsquo;s not. Because it&rsquo;s not HTML. No matter what anyone tells you.</p>
+<p>That is, in essence, all such formats are <a href="https://en.wikipedia.org/wiki/Simulacrum">simulacrum</a>.</p>
+<p>You might think it&rsquo;s just an extension, but it&rsquo;s actually a completely different format. Today it is presented in a form similar to HTML, and tomorrow there is nothing stopping it from turning into a completely unique form. Also, in many such formats, each attribute has a different semantics, but syntactically they all look the same, which again can be misleading.</p>
+<p>How about this Angular &ldquo;template:&rdquo; (syntax highlighting is trash, sorry for that)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">bi-panel</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;example&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">check-box</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;editable&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">side</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">checked</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">editable</span><span style="color:#960050;background-color:#1e0010">&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">i18n</span>
+</span></span><span style="display:flex;"><span>		&gt;
+</span></span><span style="display:flex;"><span>		Editable
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">check-box</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">text-area</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">input</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;input&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">side</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;left&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">value</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">text</span><span style="color:#960050;background-color:#1e0010">&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#960050;background-color:#1e0010">[</span><span style="color:#a6e22e">enabled</span><span style="color:#960050;background-color:#1e0010">]=&#34;</span><span style="color:#a6e22e">editable</span><span style="color:#960050;background-color:#1e0010">&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">placeholer</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Markdown content..&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">i18n-placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Showed when input is empty&#34;</span>
+</span></span><span style="display:flex;"><span>	/&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">div</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngIf</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;output-label&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">side</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;right&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">i18n</span>
+</span></span><span style="display:flex;"><span>		&gt;
+</span></span><span style="display:flex;"><span>		Result
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">mark-down</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngIf</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;output&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">side</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;right&#34;</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{text}}&#34;</span>
+</span></span><span style="display:flex;"><span>	/&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">bi-panel</span>&gt;
+</span></span></code></pre></div><ul>
+<li><code>#input</code> is a local identifier, for access via TS.</li>
+<li><code>class=&quot;editable&quot;</code> is the name of the class for binding styles via CSS.</li>
+<li><code>side=&quot;left&quot;</code> is the name of the slot where this element will be placed.</li>
+<li><code>[(checked)]=&quot;editable&quot;</code> is the two-way binding of the properties of the nested and outer components.</li>
+<li><code>[enabled]=&quot;editable&quot;</code> is one-way.</li>
+<li><code>text=&quot;{{text}}&quot;</code> - and this is the same.</li>
+<li><code>placeholer=&quot;Markdown content...&quot;</code> - is some kind of markeddown text.</li>
+<li><code>i18n-placeholder=&quot;Showed when input is empty.&quot;</code> - and this is suddenly an indication that the placeholder attribute is translatable, and an explanation to the translator.</li>
+<li><code>*ngIf=&quot;text&quot;</code> - this is not related to the component at all, but regulates whether the component will be rendered in the parent.</li>
+</ul>
 <h2 id="theyre-all-the-same-actually">They&rsquo;re all the same, actually</h2>
 <p>Sorry, but choosing between <code>onClick={...}</code>, <code>on:click={...}</code> and <code>@click=&quot;...&quot;</code> is actually a lack of choice. And I&rsquo;m tired of it.</p>
 <p>In some ways, it is understandable why such solutions might have appeared ~decade ago:</p>
@@ -345,7 +399,7 @@ Therefore, re-renders are abused to recalculate side effects and update data, ev
 <p>Excuse me, but this is all just a half-measures and unnecessary compromises. Fast and optimized re-renders is not a solution. The solution would be to get rid of them as a phenomenon.</p>
 <p>And this is possible with static initialization of the entire interface tree. Each element (or rather, the callback of an element inside the stack) will be calculated and called once to associate reactive values with nodes.
 That&rsquo;s it, the main task here is to execute the described code <strong>only once</strong>, and all that will happen further is the data/events flow along the DOM graph.</p>
-<p>Let&rsquo;s move on. What abot rendering a list of something? Here it is:</p>
+<p>Let&rsquo;s move on. What abot rendering a list of something?</p>
 <p><strong>React</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">UserList() {</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
@@ -459,9 +513,7 @@ That&rsquo;s it, the main task here is to execute the described code <strong>onl
 </span></span><span style="display:flex;"><span>    })
 </span></span><span style="display:flex;"><span>  })
 </span></span><span style="display:flex;"><span>})
-</span></span></code></pre></div><p>Here <code>changeUsername</code> and <code>changePassword</code> are events to reactively change perspective values. And <code>fields</code> is a reactive object with the attributes themselves.
-Using the <code>map()</code> method, we can create a derived property (hello <code>$derived</code> from Svelte) that will update when the username or password is updated and change the attribute of the button.</p>
-<p>I know what you might think looking at it for the first time:</p>
+</span></span></code></pre></div><p>I know what you might think looking at it for the first time:</p>
 <ul>
 <li>It looks very unusual</li>
 <li>Hella verbose</li>
@@ -478,7 +530,7 @@ Using the <code>map()</code> method, we can create a derived property (hello <co
 </ul>
 <p>Verbose? Yes, I agree. This approach looks more verbose than what React, Vue, Svelte, Solid and others offers. But the solution presented above doesn&rsquo;t fool you about the complexity of the frontend, nor does it offer a magic pill of &ldquo;simplicity.&rdquo; Instead, you need to face reality head-on and learn to make friends with it, not fight it. In this way, you will get a clear picture of how exactly your application is built. Yes, it&rsquo;s verbose. But does it look very complicated? Or so complex that you can&rsquo;t understand what&rsquo;s going on here? I bet you understand exactly what each of these lines is doing.</p>
 <p>Moreover, you don&rsquo;t need to work directly with the DOM API. All you really need is a convenient JS API to interact with it. I am sure that the view tree should be managed by native tools. And manual work on adding, removing, updating the tree? Yes, this one can be put under the hood of some technologies.</p>
-<p>Once again, I&rsquo;m not trying to sell you some new blazingly kool-aid nuts technology. Instead, I just want to point out the problems of existing solutions and how they can be solved by native tools without reinventing the wheel.</p>
+<p>I&rsquo;m not trying to sell you some new blazingly kool-aid nuts technology. Instead, I just want to point out the problems of existing solutions and how they can be solved by native tools without reinventing the wheel.</p>
 <p>I&rsquo;ll say it again - start respecting your own platform. Everyone has learned to work with their platform, unlike the frontend developers who try to cover themselves with yet another bogus solution year after year.</p>
 <h2 id="everythings-fine-until-its-not">Everything&rsquo;s fine until it&rsquo;s not?</h2>
 <p>Fair question. Showing simple examples is difficult to convey the real picture, as some problems may not show up in simple examples.</p>
@@ -628,6 +680,8 @@ Using the <code>map()</code> method, we can create a derived property (hello <co
 The 6th seat is already sold out. There is a 5% discount if you purchase 3+ seats. Reservations are made by a regular customer, so they get free popcorn. The browser time zone is CT, the theater is in the ET time zone. The server occasionally responds with a 502.</p>
 <p>That&rsquo;s what we do on the frontend, not Todo MVCs with hypermedias.</p>
 <p>HTMX has its place, but let&rsquo;s leave it to specific backend-centered tasks and start relying on our own capabilities and platform already.</p>
+<h2 id="arent-you-too-obsessed-with-the-syntax">Aren&rsquo;t you too obsessed with the syntax?</h2>
+<p>Ye, why? I mean, some may say «arguing over syntax is a bit sad, since It mostly just doesn&rsquo;t matter», yet many will also hate the syntax presented. So it does matter after all? In fact, syntax has an incredibly large role in &ldquo;defining&rdquo; a technology, but I&rsquo;ll try to cover it in a separate article.</p>
 <h2 id="why-its-important">Why it&rsquo;s important</h2>
 <p>You may think I&rsquo;m being too aggressive with current mainstream solutions. But that&rsquo;s not true.</p>
 <p>In fact, I believe that each of these technologies is needed to some degree. Or was needed. At least for general frontend development. But what I don&rsquo;t like is that we&rsquo;re literally stuck in the past decade, and no one in the mainstream is trying to bring this to the attention of developers. As a result, our applications still have zero reproducibility, and the labor intensity of the tasks, even for monotonic ones, is featural.</p>
