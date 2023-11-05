@@ -113,7 +113,7 @@ if (!doNotTrack) {
   <meta itemprop="name" content="True readability doesn&#39;t exist! But you&#39;ll feel when it really is">
 <meta itemprop="description" content="The question of what code readability is (as part of mystical DX in general) is often raised lately. And more and more people have started to say that readability is purely a matter of preference. I can&rsquo;t blame them. After many years of development, we may catch ourselves thinking that we are already quite capable of perceiving different code of various quality, paradigms and languages. We can also get used to tools that at first seemed uncomfortable to us."><meta itemprop="datePublished" content="2023-10-28T17:06:21+03:00" />
 <meta itemprop="dateModified" content="2023-10-28T17:06:21+03:00" />
-<meta itemprop="wordCount" content="1067">
+<meta itemprop="wordCount" content="1081">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -280,7 +280,7 @@ if (!doNotTrack) {
 <p>So no, if you can easily understand code with #ifdefs nested every 5 lines, or you&rsquo;re extremely good at reading ruby metaprogramming with delegating class members to an abstract context with evals — it doesn&rsquo;t mean that this code is readably. It&rsquo;s you who have learnt to read a pile of incidental complexities. And, in general, there is nothing wrong with it - there is an incredible amount of such code around, and it is better to be able to understand it than not.</p>
 <h2 id="so-its-not-a-matter-of-preference">So it&rsquo;s not a matter of preference?</h2>
 <p>Why not? After all, whether the code will be readable for you personally also depends on your experience and preferences.</p>
-<p>But your preferences in no way affect the complexity and readability of solving a problem in which you need to implement caching clusters with shards and the ability to reshard it by value and quantity (which will lead to items redistribution) based on jump consistent hashing. And as the cherry on the cake - on the fly, no downtime. The field itself is complicated enough as it is, why add more complexities and problems? I mean, it&rsquo;s inevitable to some extent. But only to <strong>some</strong> extent. But please stop justifying hard (<em>not</em> complex) code by preferences, experience and stuff.</p>
+<p>But your preferences in no way affect the complexity and readability of the solution. For example, a problem in which you need to implement cache clusters with shards and the ability to reshard it by size and quantity (which will lead to items redistribution) based on jump consistent hashing. And as the cherry on the cake - on the fly, no downtime, with cache snapshots, correct eviction policies and high hit miss ratio. The field itself is complicated enough as it is, why add more complexities and problems? I mean, it&rsquo;s inevitable to some extent. But only to <strong>some</strong> extent. But please stop justifying hard (<em>not</em> complex) code by preferences, experience and stuff.</p>
 <p>It&rsquo;s all about how readable the solution is.</p>
 </section>
 

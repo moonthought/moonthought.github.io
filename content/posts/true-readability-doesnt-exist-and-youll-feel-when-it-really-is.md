@@ -86,6 +86,6 @@ So no, if you can easily understand code with #ifdefs nested every 5 lines, or y
 
 Why not? After all, whether the code will be readable for you personally also depends on your experience and preferences.
 
-But your preferences in no way affect the complexity and readability of solving a problem in which you need to implement caching clusters with shards and the ability to reshard it by value and quantity (which will lead to items redistribution) based on jump consistent hashing. And as the cherry on the cake - on the fly, no downtime. The field itself is complicated enough as it is, why add more complexities and problems? I mean, it's inevitable to some extent. But only to **some** extent. But please stop justifying hard (*not* complex) code by preferences, experience and stuff.
+But your preferences in no way affect the complexity and readability of the solution. For example, a problem in which you need to implement cache clusters with shards and the ability to reshard it by size and quantity (which will lead to items redistribution) based on jump consistent hashing. And as the cherry on the cake - on the fly, no downtime, with cache snapshots, correct eviction policies and high hit miss ratio. The field itself is complicated enough as it is, why add more complexities and problems? I mean, it's inevitable to some extent. But only to **some** extent. But please stop justifying hard (*not* complex) code by preferences, experience and stuff.
 
 It's all about how readable the solution is.
