@@ -20,7 +20,7 @@ The problem with this statement is that we're sort of implicitly saying - any co
 
 You may often hear the question: «Can you define readability? No, no, not just readability, but code readability, that's quite different ya know.»
 
-Indeed, readability is by definition divided into the polygraphic performance of the text and the linguistic features of the textual material. But we're not here to evaluate the contribution of font or ligatures to code readability, right?
+Indeed, readability is by definition divided into the polygraphic performance and the linguistic features of text. But we're not here to evaluate the contribution of font or ligatures to code readability, right?
 
 What *would* really interest us is the linguistic aspect of the code:
 * namings;
@@ -28,7 +28,7 @@ What *would* really interest us is the linguistic aspect of the code:
 * the level of abstraction;
 * etc.
 
-And, again, some may say that this is all more applicable to the text, not the code. But there is one important difference between code and text: code, unlike text, is obliged to fulfil its intentions. It is really not that important whether the text fulfils its purpose. For example author's idea or concept which they tries to convey through the text. If it didn't work out for them, well, it's just a bad text. It's still there, the text is relevant, it's just bad at delivering the thought. But the code **must** solve the intended problem, otherwise it is literally wrong and inapplicable. Bad ≠ wrong.
+«Yeah, these right here are preferences.» No, they're not. Because there is one important difference between code and text: code, unlike text, is obliged to fulfil its intentions. It is really not that important whether the text fulfils its purpose. For example author's idea or concept which they tries to convey through the text. If it didn't work out for them, well, it's just a bad text. It's still there, the text is relevant, it's just bad at delivering the thought. But the code **must** solve the intended problem, otherwise it is literally wrong and inapplicable. Bad ≠ wrong.
 
 All of these may lead us to believe that code readability is, in fact, a composite phenomenon:
 * it consists of a correct solution of the problem;
@@ -68,8 +68,6 @@ end
 ```
 
 Silly examples, right? But what code is more readable? Some of you will say that both are quite readable. But are they really? As much as you might want to, the first option unequivocally contains more unnecessary cognitive load than the second one. The second option you can literally read from left to right and understand the intent of the code. In the former, you have to switch both your eyes and context from one section of code to another. At the same time, you have to remember to filter the values in your head every time and also remember the top-level condition.
-
-Of course some may say that they're not familliar with language constructs from the seconds example. And this is where the developer's experience kicks in. This is where you gotta "git gud", so that you'll learn **what** you can apply, **how** to apply and even **whether** to apply certain tools to the solution.
 
 Of course, some people may say that they are not familiar with the language constructs from the second example. This is where the developer's experience comes in. This is where you have to "git gud" to understand **what** can be applied, **how** to apply it, and even **whether** to apply certain tools to the solution. But each such construct, each pattern, each paradigm doesn't relate to the problem. It's only here to help you solve something.
 

@@ -113,7 +113,7 @@ if (!doNotTrack) {
   <meta itemprop="name" content="True readability doesn&#39;t exist! But you&#39;ll feel when it really is">
 <meta itemprop="description" content="The question of what code readability is (as part of mystical DX in general) is often raised lately. And more and more people have started to say that readability is purely a matter of preference. I can&rsquo;t blame them. After many years of development, we may catch ourselves thinking that we are already quite capable of perceiving different code of various quality, paradigms and languages. We can also get used to tools that at first seemed uncomfortable to us."><meta itemprop="datePublished" content="2023-10-28T17:06:21+03:00" />
 <meta itemprop="dateModified" content="2023-10-28T17:06:21+03:00" />
-<meta itemprop="wordCount" content="1371">
+<meta itemprop="wordCount" content="1305">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -231,7 +231,7 @@ if (!doNotTrack) {
 <p>The problem with this statement is that we&rsquo;re sort of implicitly saying - any code is readable, you just don&rsquo;t have enough skills! And let&rsquo;s be honest: not all code is readably on it&rsquo;s own.</p>
 <h2 id="oh-but-can-you-define-what-readability-is">Oh, but can you define what readability is?</h2>
 <p>You may often hear the question: «Can you define readability? No, no, not just readability, but code readability, that&rsquo;s quite different ya know.»</p>
-<p>Indeed, readability is by definition divided into the polygraphic performance of the text and the linguistic features of the textual material. But we&rsquo;re not here to evaluate the contribution of font or ligatures to code readability, right?</p>
+<p>Indeed, readability is by definition divided into the polygraphic performance and the linguistic features of text. But we&rsquo;re not here to evaluate the contribution of font or ligatures to code readability, right?</p>
 <p>What <em>would</em> really interest us is the linguistic aspect of the code:</p>
 <ul>
 <li>namings;</li>
@@ -239,7 +239,7 @@ if (!doNotTrack) {
 <li>the level of abstraction;</li>
 <li>etc.</li>
 </ul>
-<p>And, again, some may say that this is all more applicable to the text, not the code. But there is one important difference between code and text: code, unlike text, is obliged to fulfil its intentions. It is really not that important whether the text fulfils its purpose. For example author&rsquo;s idea or concept which they tries to convey through the text. If it didn&rsquo;t work out for them, well, it&rsquo;s just a bad text. It&rsquo;s still there, the text is relevant, it&rsquo;s just bad at delivering the thought. But the code <strong>must</strong> solve the intended problem, otherwise it is literally wrong and inapplicable. Bad ≠ wrong.</p>
+<p>«Yeah, these right here are preferences.» No, they&rsquo;re not. Because there is one important difference between code and text: code, unlike text, is obliged to fulfil its intentions. It is really not that important whether the text fulfils its purpose. For example author&rsquo;s idea or concept which they tries to convey through the text. If it didn&rsquo;t work out for them, well, it&rsquo;s just a bad text. It&rsquo;s still there, the text is relevant, it&rsquo;s just bad at delivering the thought. But the code <strong>must</strong> solve the intended problem, otherwise it is literally wrong and inapplicable. Bad ≠ wrong.</p>
 <p>All of these may lead us to believe that code readability is, in fact, a composite phenomenon:</p>
 <ul>
 <li>it consists of a correct solution of the problem;</li>
@@ -268,7 +268,6 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  (bottom<span style="color:#f92672">..</span>top)<span style="color:#f92672">.</span>select(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:even?</span>)<span style="color:#f92672">.</span>sum
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
 </span></span></code></pre></div><p>Silly examples, right? But what code is more readable? Some of you will say that both are quite readable. But are they really? As much as you might want to, the first option unequivocally contains more unnecessary cognitive load than the second one. The second option you can literally read from left to right and understand the intent of the code. In the former, you have to switch both your eyes and context from one section of code to another. At the same time, you have to remember to filter the values in your head every time and also remember the top-level condition.</p>
-<p>Of course some may say that they&rsquo;re not familliar with language constructs from the seconds example. And this is where the developer&rsquo;s experience kicks in. This is where you gotta &ldquo;git gud&rdquo;, so that you&rsquo;ll learn <strong>what</strong> you can apply, <strong>how</strong> to apply and even <strong>whether</strong> to apply certain tools to the solution.</p>
 <p>Of course, some people may say that they are not familiar with the language constructs from the second example. This is where the developer&rsquo;s experience comes in. This is where you have to &ldquo;git gud&rdquo; to understand <strong>what</strong> can be applied, <strong>how</strong> to apply it, and even <strong>whether</strong> to apply certain tools to the solution. But each such construct, each pattern, each paradigm doesn&rsquo;t relate to the problem. It&rsquo;s only here to help you solve something.</p>
 <p>I&rsquo;m not trying to say that functional-ish code is better. Or the shorter the better. And yes, these examples look like not that big of a deal. But they do show my main point – in the first case, we force the developer to proofread code that is only indirectly relevant to solving the problem. Early return by condition? That&rsquo;s an implementation detail, it has nothing to do with the problem being solved. Declaring a variable with a default value? Again, what does this have to do with our problem? A condition inside a loop? Again a detail. Even a loop itself is just a detail. And the more such details there are in the code, the less readable it may become (and most likely will.)</p>
 <p>Now, some of you might say that it all depends on paradigm, or language constructs, or developer&rsquo;s experience, or generally that that&rsquo;s the point of programming! But you&rsquo;re confusing two different things:</p>
