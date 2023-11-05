@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Moonthoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 25 Sep 2023 13:25:39 +0300</lastBuildDate><atom:link href="https://moonthought.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Oct 2023 17:06:21 +0300</lastBuildDate><atom:link href="https://moonthought.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>True readability doesn&#39;t exist! But you&#39;ll feel when it really is</title>
+      <link>https://moonthought.github.io/posts/true-readability-doesnt-exist-and-youll-feel-when-it-really-is/</link>
+      <pubDate>Sat, 28 Oct 2023 17:06:21 +0300</pubDate>
+      
+      <guid>https://moonthought.github.io/posts/true-readability-doesnt-exist-and-youll-feel-when-it-really-is/</guid>
+      <description>The question of what code readability is (as part of mystical DX in general) is often raised lately. And more and more people have started to say that readability is purely a matter of preference. I can&amp;rsquo;t blame them. After many years of development, we may catch ourselves thinking that we are already quite capable of perceiving different code of various quality, paradigms and languages. We can also get used to tools that at first seemed uncomfortable to us.</description>
+    </item>
+    
     <item>
       <title>All your mainstream UI frameworks are lying to you</title>
       <link>https://moonthought.github.io/posts/all-your-mainstream-ui-frameworks-are-lying-to-you/</link>

@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://moonthought.github.io/posts/all-your-mainstream-ui-frameworks-are-lying-to-you/</loc>
-    <lastmod>2023-09-25T13:25:39+03:00</lastmod>
-  </url><url>
     <loc>https://moonthought.github.io/</loc>
-    <lastmod>2023-09-25T13:25:39+03:00</lastmod>
+    <lastmod>2023-10-28T17:06:21+03:00</lastmod>
   </url><url>
     <loc>https://moonthought.github.io/posts/</loc>
+    <lastmod>2023-10-28T17:06:21+03:00</lastmod>
+  </url><url>
+    <loc>https://moonthought.github.io/posts/true-readability-doesnt-exist-and-youll-feel-when-it-really-is/</loc>
+    <lastmod>2023-10-28T17:06:21+03:00</lastmod>
+  </url><url>
+    <loc>https://moonthought.github.io/posts/all-your-mainstream-ui-frameworks-are-lying-to-you/</loc>
     <lastmod>2023-09-25T13:25:39+03:00</lastmod>
   </url><url>
     <loc>https://moonthought.github.io/categories/</loc>
