@@ -1,5 +1,5 @@
 +++
-title = "True readability doesn't exist! But you'll feel when it really is"
+title = "True code readability doesn't exist! But you'll feel when it really is"
 date = 2023-10-28T17:06:21+03:00
 draft = false
 +++
