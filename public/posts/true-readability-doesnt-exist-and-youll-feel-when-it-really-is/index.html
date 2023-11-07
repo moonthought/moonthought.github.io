@@ -113,7 +113,7 @@ if (!doNotTrack) {
   <meta itemprop="name" content="True code readability doesn&#39;t exist! But you&#39;ll feel when it really is">
 <meta itemprop="description" content="The question of what code readability is (as part of mystical DX in general) is often raised lately. And more and more people have started to say that readability is purely a matter of preference. I can&rsquo;t blame them. After many years of development, we may catch ourselves thinking that we are already quite capable of perceiving different code of various quality, paradigms and languages. We can also get used to tools that at first seemed uncomfortable to us."><meta itemprop="datePublished" content="2023-10-28T17:06:21+03:00" />
 <meta itemprop="dateModified" content="2023-10-28T17:06:21+03:00" />
-<meta itemprop="wordCount" content="1310">
+<meta itemprop="wordCount" content="1183">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
@@ -249,28 +249,9 @@ if (!doNotTrack) {
 <h2 id="code-readability-is-not-what-you-think-it-is">Code readability is not what you think it is</h2>
 <p>Notice how we switched from «code readability» to «solution readability?» I believe that this is the main feature of the problem of characterising readability: we are trying to look at the term without contextualisation. When we try to judge the readability of code, many people primarily judge the code itself, not what it&rsquo;s trying to solve. This is where disputes begin: procedural code is more readable than functional code, declarative code is clearer than imperative code, inheritance vs. composition and a bunch of other buzzwords.</p>
 <p>Your coding style may be more readable for you, but that doesn&rsquo;t mean it makes for a readable solution.</p>
-<p>Suppose we want to calculate the sum of even numbers from the lower to the upper range. That&rsquo;s it, yeah. Extremelly simple examples (mb too simple):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calculate</span>(bottom, top)
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">if</span> top <span style="color:#f92672">&lt;</span> bottom
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> number <span style="color:#66d9ef">in</span> bottom<span style="color:#f92672">..</span>top <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">next</span> <span style="color:#66d9ef">unless</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    sum <span style="color:#f92672">+=</span> number
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  sum
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
-</span></span></code></pre></div><p>And</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calculate</span>(bottom, top)
-</span></span><span style="display:flex;"><span>  (bottom<span style="color:#f92672">..</span>top)<span style="color:#f92672">.</span>select(<span style="color:#f92672">&amp;</span><span style="color:#e6db74">:even?</span>)<span style="color:#f92672">.</span>sum
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
-</span></span></code></pre></div><p>Silly examples, right? But hey, first option unequivocally contains more unnecessary cognitive load than the second one. The second option you can literally read from left to right and understand the intent of the code. In the former, you have to switch both your eyes and context from one section of code to another. At the same time, you have to remember to filter the values in your head every time and also remember the top-level condition.</p>
-<p>Of course, some people may say that they are not familiar with the language constructs from the second example. This is where the developer&rsquo;s experience comes in. This is where you have to &ldquo;git gud&rdquo; to understand <strong>what</strong> can be applied, <strong>how</strong> to apply it, and even <strong>whether</strong> to apply certain tools to the solution. But each such construct, each pattern, each paradigm doesn&rsquo;t relate to the problem. It&rsquo;s only here to help you solve something.</p>
-<p>I&rsquo;m not trying to say that functional-ish code is better. Or the shorter the better. And yes, these examples look like not that big of a deal. But they do show the main point – in the first case, we force the developer to proofread code that is only indirectly relevant to solving the problem. Early return by condition? That&rsquo;s an implementation detail, it has nothing to do with the problem being solved. Declaring a variable with a default value? Again, what does this have to do with our problem? A condition inside a loop? Again a detail. Even a loop itself is just a detail. And the more such details there are in the code, the less readable it may become (and most likely will.)</p>
-<p>Now, some of you might say that it all depends on paradigm, or language constructs, or developer&rsquo;s experience, or generally that that&rsquo;s the point of programming! But you&rsquo;re confusing two different things:</p>
+<p>But each such construct, each pattern, each paradigm doesn&rsquo;t relate to the problem. It&rsquo;s only here to help you solve something. This is where the developer&rsquo;s experience comes in. This is where you have to &ldquo;git gud&rdquo; to understand <strong>what</strong> can be applied, <strong>how</strong> to apply it, and even <strong>whether</strong> to apply certain tools to the solution.</p>
+<p>I&rsquo;m not trying to say that the shorter the better. Or that you should type imperative code only. Or that you don&rsquo;t need any patterns, methodologies and paradigms. It&rsquo;s just the more such details there are in the code, the less readable it may become (and most likely will.)</p>
+<p>Now, some of you might say that «well, it all depends on chosen paradigms, language and it&rsquo;s constructs, or developer&rsquo;s experience, or generally that that&rsquo;s the point of programming!» But you&rsquo;re confusing two different things:</p>
 <ul>
 <li>inherent complexity</li>
 <li>incidental complexity</li>
@@ -283,8 +264,15 @@ if (!doNotTrack) {
 <blockquote>
 <p>Incidental complexity — anything about software that is hard but doesn’t really have to be</p>
 </blockquote>
-<p>Incidental complexity is introduced by libraries, frameworks, languages, paradigms, developers&rsquo;s preferences etc. Inherent complexity is the trade-offs you have to make to solve fundamental problems of the chosen domain. A good engineer will reduce the Incidental complexity and try to accept and deal with the inherent complexity.</p>
-<p>So no, if you can easily understand code with <code>#ifdefs</code> nested every 5 lines, or you&rsquo;re extremely good at reading ruby metaprogramming with delegating class members to an abstract context with evals — it doesn&rsquo;t mean that this code is readably. Or maybe it is. But in the end it&rsquo;s just you who have learnt to read a pile of incidental complexities. And, in general, there is nothing wrong with it - there is an incredible amount of such code around, and it is better to be able to understand it than not. But the solution readability has nothing to do with your</p>
+<p>Incidental complexity is introduced by libraries, frameworks, languages, paradigms, developers&rsquo;s preferences etc. It&rsquo;s the trade-offs you have to make. But inherent complexity is a problem of the chosen domain itself.</p>
+<ul>
+<li>UI&rsquo;s re-renders is an incidental complexity. It&rsquo;s not a real problem no matter how you look at it – it just doesn&rsquo;t exist in the wild;</li>
+<li>Nested factories is an incidental complexity. Businesses just want to see sales analytics to calculate conversion rates. It doesn&rsquo;t care about your factories;</li>
+<li>Your declarative abstract bindings with the impossibility of normal debugging is an incidental complexity. It&rsquo;s a trade-off you&rsquo;ve made to solve the problem, not the problem;</li>
+<li>Classes that are built with metaprogramming, obscure namings and multiple inheritance that you inject to your services via fibers? Another incidental complexity.</li>
+</ul>
+<p>A good engineer will reduce the incidental complexity and try to accept and deal with the inherent complexity.</p>
+<p>So no, if you can easily understand code with <code>#ifdefs</code> nested every 5 lines, or you&rsquo;re extremely good at reading ruby metaprogramming with delegating class members to an abstract context with evals — it doesn&rsquo;t mean that this code is readable. Or it could be for you or your coworkers, who knows. But in the end it&rsquo;s just you who have learnt to read a pile of incidental complexities. And, in general, there is nothing wrong with it - there is an incredible amount of such code around, and it is better to be able to understand it than not. But none of this is relevant to the problem itself.</p>
 <h2 id="so-its-not-a-matter-of-preference">So it&rsquo;s not a matter of preference?</h2>
 <p>Why not? After all, whether the <em>code</em> will be readable for you personally <em>also</em> depends on your experience and preferences.</p>
 <p>But your preferences in no way affect the complexity and readability of the solution. For example, a problem in which you need to implement cache clusters with shards and the ability to reshard it by size and quantity (which will lead to items redistribution) based on jump consistent hashing. And all of these should happen on the fly with no downtime. And with cache snapshotting, correct eviction policies and high hit miss ratio of course! The field itself is complicated enough as it is, why add more complexities and problems and call it a &ldquo;skill issue&rdquo; of someone else? Honestly it&rsquo;s still inevitable to some extent. But only to <strong>some</strong> extent. Becayse the next goal after a correct solution is to have as little incidental complexity and unnecessary details as possible. So please, stop justifying hard to grasp code – <strong>not</strong> complex one –  by preferences.</p>

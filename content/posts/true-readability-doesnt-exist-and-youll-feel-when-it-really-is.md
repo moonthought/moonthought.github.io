@@ -41,39 +41,11 @@ Notice how we switched from «code readability» to «solution readability?» I 
 
 Your coding style may be more readable for you, but that doesn't mean it makes for a readable solution.
 
-Suppose we want to calculate the sum of even numbers from the lower to the upper range. That's it, yeah. Extremelly simple examples (mb too simple):
+But each such construct, each pattern, each paradigm doesn't relate to the problem. It's only here to help you solve something. This is where the developer's experience comes in. This is where you have to "git gud" to understand **what** can be applied, **how** to apply it, and even **whether** to apply certain tools to the solution.
 
-```ruby
-def calculate(bottom, top)
-  return 0 if top < bottom
+I'm not trying to say that the shorter the better. Or that you should type imperative code only. Or that you don't need any patterns, methodologies and paradigms. It's just the more such details there are in the code, the less readable it may become (and most likely will.)
 
-  sum = 0
-
-  for number in bottom..top do
-    next unless number % 2 == 0
-
-    sum += number
-  end
-
-  sum
-end
-```
-
-And
-
-```ruby
-def calculate(bottom, top)
-  (bottom..top).select(&:even?).sum
-end
-```
-
-Silly examples, right? But hey, first option unequivocally contains more unnecessary cognitive load than the second one. The second option you can literally read from left to right and understand the intent of the code. In the former, you have to switch both your eyes and context from one section of code to another. At the same time, you have to remember to filter the values in your head every time and also remember the top-level condition.
-
-Of course, some people may say that they are not familiar with the language constructs from the second example. This is where the developer's experience comes in. This is where you have to "git gud" to understand **what** can be applied, **how** to apply it, and even **whether** to apply certain tools to the solution. But each such construct, each pattern, each paradigm doesn't relate to the problem. It's only here to help you solve something.
-
-I'm not trying to say that functional-ish code is better. Or the shorter the better. And yes, these examples look like not that big of a deal. But they do show the main point – in the first case, we force the developer to proofread code that is only indirectly relevant to solving the problem. Early return by condition? That's an implementation detail, it has nothing to do with the problem being solved. Declaring a variable with a default value? Again, what does this have to do with our problem? A condition inside a loop? Again a detail. Even a loop itself is just a detail. And the more such details there are in the code, the less readable it may become (and most likely will.)
-
-Now, some of you might say that it all depends on paradigm, or language constructs, or developer's experience, or generally that that's the point of programming! But you're confusing two different things:
+Now, some of you might say that «well, it all depends on chosen paradigms, language and it's constructs, or developer's experience, or generally that that's the point of programming!» But you're confusing two different things:
 * inherent complexity
 * incidental complexity
 
@@ -85,9 +57,16 @@ Let me just quote:
 
 > Incidental complexity — anything about software that is hard but doesn’t really have to be
 
-Incidental complexity is introduced by libraries, frameworks, languages, paradigms, developers's preferences etc. Inherent complexity is the trade-offs you have to make to solve fundamental problems of the chosen domain. A good engineer will reduce the Incidental complexity and try to accept and deal with the inherent complexity.
+Incidental complexity is introduced by libraries, frameworks, languages, paradigms, developers's preferences etc. It's the trade-offs you have to make. But inherent complexity is a problem of the chosen domain itself.
 
-So no, if you can easily understand code with `#ifdefs` nested every 5 lines, or you're extremely good at reading ruby metaprogramming with delegating class members to an abstract context with evals — it doesn't mean that this code is readably. Or maybe it is. But in the end it's just you who have learnt to read a pile of incidental complexities. And, in general, there is nothing wrong with it - there is an incredible amount of such code around, and it is better to be able to understand it than not. But the solution readability has nothing to do with your
+* UI's re-renders is an incidental complexity. It's not a real problem no matter how you look at it – it just doesn't exist in the wild;
+* Nested factories is an incidental complexity. Businesses just want to see sales analytics to calculate conversion rates. It doesn't care about your factories;
+* Your declarative abstract bindings with the impossibility of normal debugging is an incidental complexity. It's a trade-off you've made to solve the problem, not the problem;
+* Classes that are built with metaprogramming, obscure namings and multiple inheritance that you inject to your services via fibers? Another incidental complexity.
+
+A good engineer will reduce the incidental complexity and try to accept and deal with the inherent complexity.
+
+So no, if you can easily understand code with `#ifdefs` nested every 5 lines, or you're extremely good at reading ruby metaprogramming with delegating class members to an abstract context with evals — it doesn't mean that this code is readable. Or it could be for you or your coworkers, who knows. But in the end it's just you who have learnt to read a pile of incidental complexities. And, in general, there is nothing wrong with it - there is an incredible amount of such code around, and it is better to be able to understand it than not. But none of this is relevant to the problem itself.
 
 ## So it's not a matter of preference?
 
