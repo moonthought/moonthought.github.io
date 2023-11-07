@@ -28,7 +28,7 @@ What *would* really interest us is the linguistic aspect of the code:
 * the level of abstraction;
 * etc.
 
-«Yeah, these right here are preferences.» No, they're not. Because there is one important difference between code and text: code, unlike text, is obliged to fulfil its intentions. It is really not that important whether the text fulfils its purpose. For example author's idea or concept which they tries to convey through the text. If it didn't work out for them, well, it's just a bad text. It's still there, the text is relevant, it's just bad at delivering the thought. But the code **must** solve the intended problem, otherwise it is literally wrong and inapplicable. Bad ≠ wrong.
+«Yeah, these right here are preferences.» No, they're not. Because there is one important difference between code and text: code, unlike text, is obliged to fulfil its intentions. And it must do so with minimal deviation from the essence of the task at hand. It is really not that important whether the text fulfils its purpose (generally speaking.) For example author's idea or concept which they tries to convey through the text. If it didn't work out for them, well, it's just a bad text. It's still there, the text is relevant, it's just bad at delivering the thought. But the code **must** solve the intended problem, otherwise it is literally wrong and inapplicable. Bad ≠ wrong.
 
 All of these may lead us to believe that code readability is, in fact, a composite phenomenon:
 * it consists of a correct solution of the problem;
@@ -41,7 +41,7 @@ Notice how we switched from «code readability» to «solution readability?» I 
 
 Your coding style may be more readable for you, but that doesn't mean it makes for a readable solution.
 
-Now, let's take a look at the really simple (mb too simple) examples:
+Suppose we want to calculate the sum of even numbers from the lower to the upper range. That's it, yeah. Extremelly simple examples (mb too simple):
 
 ```ruby
 def calculate(bottom, top)
@@ -67,11 +67,11 @@ def calculate(bottom, top)
 end
 ```
 
-Silly examples, right? But what code is more readable? Some of you will say that both are quite readable. But are they really? As much as you might want to, the first option unequivocally contains more unnecessary cognitive load than the second one. The second option you can literally read from left to right and understand the intent of the code. In the former, you have to switch both your eyes and context from one section of code to another. At the same time, you have to remember to filter the values in your head every time and also remember the top-level condition.
+Silly examples, right? But hey, first option unequivocally contains more unnecessary cognitive load than the second one. The second option you can literally read from left to right and understand the intent of the code. In the former, you have to switch both your eyes and context from one section of code to another. At the same time, you have to remember to filter the values in your head every time and also remember the top-level condition.
 
 Of course, some people may say that they are not familiar with the language constructs from the second example. This is where the developer's experience comes in. This is where you have to "git gud" to understand **what** can be applied, **how** to apply it, and even **whether** to apply certain tools to the solution. But each such construct, each pattern, each paradigm doesn't relate to the problem. It's only here to help you solve something.
 
-I'm not trying to say that functional-ish code is better. Or the shorter the better. And yes, these examples look like not that big of a deal. But they do show my main point – in the first case, we force the developer to proofread code that is only indirectly relevant to solving the problem. Early return by condition? That's an implementation detail, it has nothing to do with the problem being solved. Declaring a variable with a default value? Again, what does this have to do with our problem? A condition inside a loop? Again a detail. Even a loop itself is just a detail. And the more such details there are in the code, the less readable it may become (and most likely will.)
+I'm not trying to say that functional-ish code is better. Or the shorter the better. And yes, these examples look like not that big of a deal. But they do show the main point – in the first case, we force the developer to proofread code that is only indirectly relevant to solving the problem. Early return by condition? That's an implementation detail, it has nothing to do with the problem being solved. Declaring a variable with a default value? Again, what does this have to do with our problem? A condition inside a loop? Again a detail. Even a loop itself is just a detail. And the more such details there are in the code, the less readable it may become (and most likely will.)
 
 Now, some of you might say that it all depends on paradigm, or language constructs, or developer's experience, or generally that that's the point of programming! But you're confusing two different things:
 * inherent complexity
